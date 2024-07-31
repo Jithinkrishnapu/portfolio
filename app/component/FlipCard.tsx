@@ -71,10 +71,10 @@ const FlipCard: React.FC<FlipCardProps> = ({ title, description, details }) => {
           </h1>
         </div>
         <p className="text-sm md:text-lg">
-          My name is Jithin Krishna, I'm a software developer based in Kochi. I have developed many types of front-ends from well-known DJ applications to E-commerce booking platforms.
+          {"My name is Jithin Krishna, I'm a software developer based in Kochi. I have developed many types of front-ends from well-known DJ applications to E-commerce booking platforms."}
         </p>
         <p className="text-xs md:text-sm">
-          I'm passionate about cutting-edge, pixel-perfect, beautiful interfaces, and intuitively implemented UX.
+         {" I'm passionate about cutting-edge, pixel-perfect, beautiful interfaces, and intuitively implemented UX."}
         </p>
         <h1 className='italic underline' onClick={()=>handleClick(0)} >Click to see my projects</h1>
         <p className="text-gray-400 text-xs">@ 2024 [yourwebsite].com</p>
