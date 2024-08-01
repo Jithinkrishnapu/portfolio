@@ -13,7 +13,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-        <div className='flex flex-col justify-center items-center min-h-[100vh] p-[0_0.5rem]'>
+        <div className='flex flex-col justify-center items-center p-[0_0.5rem]'>
         <Portfolio />
       </div>
     </div>
