@@ -93,14 +93,14 @@ const FlipCard: React.FC<FlipCardProps> = ({ title, description, details }) => {
           </div>
           <p className="text-sm md:text-lg">
             {
-              "Hi, I'm Jithin Krishna, a Senior Software Developer based in Kochi. With a strong background in mobile and web development, I've worked on diverse projects ranging from innovative Android and iOS applications to scalable web platforms. I am passionate about crafting pixel-perfect, user-friendly interfaces and seamless user experiences. "
+              "Hi, I'm Jithin Krishna, a Senior Software Developer based in Kochi. With a strong background in mobile and web development, My expertise in Java, React Native, and Flutter allows me to deliver cutting-edge solutions that meet user needs and drive business success. I thrive on collaboration and am dedicated to pushing the boundaries of technology to create transformative digital experiences. "
             }
           </p>
-          <p className="text-xs md:text-sm">
+          {/* <p className="text-xs md:text-sm">
             {
               "My expertise in Java, React Native, and Flutter allows me to deliver cutting-edge solutions that meet user needs and drive business success. I thrive on collaboration and am dedicated to pushing the boundaries of technology to create transformative digital experiences."
             }
-          </p>
+          </p> */}
           <h1 className="italic underline" onClick={() => handleClick(0)}>
             Click to see my projects
           </h1>
