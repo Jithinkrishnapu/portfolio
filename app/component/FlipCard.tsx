@@ -87,7 +87,7 @@ const FlipCard: React.FC<FlipCardProps> = () => {
           {["Home", "About", "Portfolio", "Contact"].map((section) => (
             <h1
               key={section}
-              className="italic underline cursor-pointer"
+              className=" text-white cursor-pointer"
               onClick={() => handleClick(section)}
             >
               {section}
@@ -180,7 +180,7 @@ const FlipCard: React.FC<FlipCardProps> = () => {
           {["Home", "About", "Portfolio", "Contact"].map((section) => (
             <h1
               key={section}
-              className="italic underline cursor-pointer"
+              className="text-white cursor-pointer"
               onClick={() => handleClick(section)}
             >
               {section}
