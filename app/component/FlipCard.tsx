@@ -138,7 +138,7 @@ const FlipCard: React.FC<FlipCardProps> = () => {
        <h1 className="font-bold text-[20px]">Projects</h1>
        <div className="flex overflow-scroll   gap-2 items-center">
          {projects.map((val, index) => (
-         <Card description={val.description} imageSrc={MykareBanner} title={val.title}  />
+         <Card key={index} description={val.description} imageSrc={MykareBanner} title={val.title}  />
          ))} 
          </div>
      </>
@@ -226,7 +226,7 @@ const FlipCard: React.FC<FlipCardProps> = () => {
         {/* <h1 className="font-bold text-[20px]">Projects</h1> */}
         <div className="flex overflow-scroll flex-wrap  gap-5 items-center">
           {projects.map((val, index) => (
-          <Card description={val.description} imageSrc={MykareBanner} title={val.title}  />
+          <Card key={index} description={val.description} imageSrc={MykareBanner} title={val.title}  />
           ))} 
           </div>
           <br/>
