@@ -4,11 +4,11 @@ import Github from "../assets/github-svgrepo-com.svg";
 import LinkedIn from "../assets/linkedin-svgrepo-com.svg";
 import GMail from "../assets/gmail-svgrepo-com.svg";
 import Link from "next/link";
-import Playstore from "../assets/playstore-svgrepo-com.svg";
-import Appstore from "../assets/appstore-svgrepo-com.svg";
 import AnimatedTextCharacter from "./AnimationTextCharector";
-import MykareBanner from '../assets/mykare.webp';
-import Card from "./Card";
+import MykareBanner from "../assets/mykare.webp";
+import Cards from "./Card";
+import Navbar from "./NavBar";
+import Skills from "../pages/Skills";
 
 interface FlipCardProps {
   title: string;
@@ -20,6 +20,7 @@ const projects = [
   {
     title: "Mykare",
     description: "Description of Domposer.",
+    imageSrc:'https://play-lh.googleusercontent.com/Q0U4q2oN9Vio5sxuMv23yrCmhebKRaoFrK1P0URK22gdNpJ_FPzdi3ElGbKSfD2T6A=w832-h470-rw',
     playStore:
       "https://play.google.com/store/apps/details?id=com.mykare.mykare&pcampaignid=web_share",
     appStore: "https://apps.apple.com/in/app/mykare/id6578440951",
@@ -29,6 +30,7 @@ const projects = [
   {
     title: "Karemitra",
     description: "Description of Domposer.",
+    imageSrc:'https://play-lh.googleusercontent.com/pobDHyVoZQE9aJos2wcdXWSRL1U4c-MV_0flC7mye_4w6pkJB6gLA2i5OurgyBOc8uLB=w832-h470-rw',
     playStore:
       "https://play.google.com/store/apps/details?id=com.mykare.karemitra&pcampaignid=web_share",
     appStore: "https://apps.apple.com/in/app/karemitra/id6480199168",
@@ -38,6 +40,7 @@ const projects = [
   {
     title: "Kareflow",
     description: "Description of Bay.js.",
+    imageSrc:'https://play-lh.googleusercontent.com/QAUPZA8-8tNKoWzBM_RmaYyrqadNoLXpNPFrfqwLU7-K-LAlDMq5Uwqvh67OHfLdmxY=w832-h470-rw',
     playStore:
       "https://play.google.com/store/apps/details?id=com.mykare.crm&pcampaignid=web_share",
     appStore: "",
@@ -47,6 +50,7 @@ const projects = [
   {
     title: "Karebuddy",
     description: "Description of Cookiemunch.",
+    imageSrc:'https://play-lh.googleusercontent.com/qtJ2GTz_NbdWZm6L2F5GIWmDqyqmYfczdhIpUnWmOuI1hg9YablEj7XWWplQLxwGCkY4=w832-h470-rw',
     playStore:
       "https://play.google.com/store/apps/details?id=com.mykare.buddy&pcampaignid=web_share",
     appStore: "https://apps.apple.com/in/app/kare-buddy/id6449086925",
@@ -55,6 +59,24 @@ const projects = [
   },
   // Add more projects as needed
 ];
+
+const Home = () => {
+  return (
+    <div className=" md:w-[70%] m-auto flex-col items-center " >
+      <div className="flex items-center mb-5 justify-center space-x-4">
+        <h1 className="text-3xl md:text-4xl font-bold">
+          <AnimatedTextCharacter fontSize="3rem" text="Welcome." />
+        </h1>
+      </div>
+      <p className="text-sm md:text-center mb-5 md:text-lg">
+        {
+          "Hi, I'm Jithin Krishna, a Senior Software Developer based in Kochi. With a strong background in mobile and web development, My expertise in Java, React Native, and Flutter allows me to deliver cutting-edge solutions that meet user needs and drive business success. I thrive on collaboration and am dedicated to pushing the boundaries of technology to create transformative digital experiences. "
+        }
+      </p>
+      <p className="text-gray-400 text-center absolute bottom-5 left-0 right-0 text-xs">@ 2024 jithnkrishna.com</p>
+    </div>
+  );
+};
 
 const FlipCard: React.FC<FlipCardProps> = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -79,69 +101,30 @@ const FlipCard: React.FC<FlipCardProps> = () => {
 
   const FrontSide = () => (
     <Fragment>
-      <div className="flex-[1] top-3 px-5 flex absolute w-full justify-between items-center">
-        <div className="flex-[3] ">
-          <h1 className="text-[30px] text-white font-mono">JK</h1>
-        </div>
-        <div className="hidden md:flex space-x-4">
-          {["Home", "About", "Portfolio", "Contact"].map((section) => (
-            <h1
-              key={section}
-              className=" text-white cursor-pointer"
-              onClick={() => handleClick(section)}
-            >
-              {section}
-            </h1>
-          ))}
-        </div>
-        <div className="flex flex-[3] justify-end gap-2 ">
-          <Link href="https://www.linkedin.com/in/jithin-krishna-078680177/">
-            <LinkedIn height={25} width={25} fill={"#fff"} />
-          </Link>
-          <Link href="https://github.com/Jithinkrishnapu">
-            <Github height={25} width={25} fill={"#fff"} />
-          </Link>
-          <Link href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJNqLRrfLdfRKPKgtHtJHKrfFftscMPVrDFhXXPsXpjfKVgPQVgQWXDxsKppfWtlSfkkvjB">
-            {" "}
-            <GMail height={25} width={25} fill={"#fff"} />
-          </Link>
-        </div>
-      </div>
-  
-      <div className=" h-[85vh] bg-black text-white rounded-[25px] border-[2px] border-[#7c7d81] cursor-pointer flex flex-col justify-center items-start p-6 md:p-8 space-y-4">
-        {currentSection === "Home" && (
-          <>
-            <div className="flex items-center space-x-4">
-              <h1 className="text-3xl md:text-4xl font-bold">
-                <AnimatedTextCharacter text="Welcome." />
-              </h1>
-            </div>
-            <p className="text-sm md:text-lg">
-              {
-                "Hi, I'm Jithin Krishna, a Senior Software Developer based in Kochi. With a strong background in mobile and web development, My expertise in Java, React Native, and Flutter allows me to deliver cutting-edge solutions that meet user needs and drive business success. I thrive on collaboration and am dedicated to pushing the boundaries of technology to create transformative digital experiences. "
-              }
-            </p>
-            <p className="text-gray-400 text-xs">@ 2024 jithnkrishna.com</p>
-          </>
-        )}
+      <Navbar currentSection={currentSection} handleClick={handleClick} />
+      <div className=" h-[85vh] bg-black  text-white rounded-[25px] border-[2px] border-[#7c7d81] cursor-pointer flex flex-col justify-center items-start p-6 md:p-8 space-y-4">
+        {currentSection === "Home" && <Home />}
         {currentSection === "About" && (
-          <>
-            <h1 className="text-3xl md:text-4xl font-bold">About</h1>
-            <p className="text-sm md:text-lg">
+          <div className=" py-5 mt-[70px] mx-auto overflow-scroll" >
+            <h1 className="text-3xl md:text-4xl text-center font-bold">About</h1>
+            <p className="text-sm text-center md:text-lg">
               I am a Senior Software Developer with a strong background in
               mobile and web development.
             </p>
-          </>
+            <Skills/>
+          </div>
         )}
         {currentSection === "Portfolio" && (
-       <>
-       <h1 className="font-bold text-[20px]">Projects</h1>
-       <div className="flex overflow-scroll   gap-2 items-center">
-         {projects.map((val, index) => (
-         <Card key={index} description={val.description} imageSrc={MykareBanner} title={val.title}  />
-         ))} 
-         </div>
-     </>
+          <>
+            {/* <h1 className="font-bold text-[20px]">Projects</h1> */}
+            <div className="flex flex-wrap mt-[70px] mb-[70px] overflow-scroll gap-2 justify-center items-center">
+              {projects.map((val, index) => (
+                <Cards playstore={val.playStore} appStore={val.appStore}
+                  key={index} description={val.description} imageSrc={val.imageSrc} title={val.title} 
+                />
+              ))}
+            </div>
+          </>
         )}
         {currentSection === "Contact" && (
           <>
@@ -152,14 +135,16 @@ const FlipCard: React.FC<FlipCardProps> = () => {
           </>
         )}
       </div>
-  
+
       {/* Bottom Navigation for Mobile */}
-      <div className="fixed bottom-0 left-0 right-0 bg-black border-l-2 border-r-2 border-white rounded-b-[20px] text-white flex justify-around items-center py-2 md:hidden">
+      <div className="fixed bottom-0 left-0 right-0 bg-black border-l-2 border-r-2 border-white rounded-b-[20px] text-white flex justify-around items-center py-3 md:hidden">
         {["Home", "About", "Portfolio", "Contact"].map((section) => (
           <button
             key={section}
-            className={`flex-1 rounded-lg text-center py-2 ${
-              currentSection === section ? "bg-gray-700" : ""
+            className={`text-white cursor-pointer transition duration-300 ${
+              currentSection === section
+                ? "glossy-underline text-yellow-400 transform scale-110"
+                : "hover:text-yellow-300"
             }`}
             onClick={() => handleClick(section)}
           >
@@ -169,69 +154,37 @@ const FlipCard: React.FC<FlipCardProps> = () => {
       </div>
     </Fragment>
   );
-  
+
   const BackSide = () => (
     <Fragment>
-      <div className="flex-[1] top-3 px-5 flex absolute w-full justify-between items-center">
-        <div className="flex-[3] ">
-          <h1 className="text-[30px] text-white font-mono">JK</h1>
-        </div>
-        <div className="hidden md:flex space-x-4">
-          {["Home", "About", "Portfolio", "Contact"].map((section) => (
-            <h1
-              key={section}
-              className="text-white cursor-pointer"
-              onClick={() => handleClick(section)}
-            >
-              {section}
-            </h1>
-          ))}
-        </div>
-        <div className="flex flex-[3] justify-end gap-2 ">
-          <Link href="https://www.linkedin.com/in/jithin-krishna-078680177/">
-            <LinkedIn height={25} width={25} fill={"#fff"} />
-          </Link>
-          <Link href="https://github.com/Jithinkrishnapu">
-            <Github height={25} width={25} fill={"#fff"} />
-          </Link>
-          <Link href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJNqLRrfLdfRKPKgtHtJHKrfFftscMPVrDFhXXPsXpjfKVgPQVgQWXDxsKppfWtlSfkkvjB">
-            {" "}
-            <GMail height={25} width={25} fill={"#fff"} />
-          </Link>
-        </div>
-      </div>
+     <Navbar currentSection={currentSection} handleClick={handleClick} />
       <div className=" h-[85vh] bg-black text-white rounded-[25px] border-[2px] border-[#7c7d81] cursor-pointer flex flex-col justify-center items-start p-6 md:p-8 space-y-4">
-        {currentSection === "Home" && (
-          <>
-            <h1 className="text-3xl md:text-4xl font-bold">Home</h1>
-            <p className="text-sm md:text-lg">
-              Welcome to my portfolio. Click on the menu items to explore
-              more.
-            </p>
-          </>
-        )}
+        {currentSection === "Home" && <Home />}
         {currentSection === "About" && (
-          <>
-            <h1 className="text-3xl md:text-4xl font-bold">About</h1>
-            <p className="text-sm md:text-lg">
+          <div className=" py-5 mt-[70px] mx-auto overflow-scroll" >
+            <h2 className="text-3xl font-bold mb-8 text-center">About</h2>
+            <p className="text-sm text-center md:text-lg">
               I am a Senior Software Developer with a strong background in
               mobile and web development.
             </p>
-          </>
+            <Skills/>
+          </div>
         )}
         {currentSection === "Portfolio" && (
-        <div className="flex-1 justify-center overflow-scroll items-center px-5" >
-          <br/>
-          <br/>
-        {/* <h1 className="font-bold text-[20px]">Projects</h1> */}
-        <div className="flex overflow-scroll flex-wrap  gap-5 items-center">
-          {projects.map((val, index) => (
-          <Card key={index} description={val.description} imageSrc={MykareBanner} title={val.title}  />
-          ))} 
+          <div className="flex-1 justify-center overflow-scroll items-center px-5">
+            <br />
+            <br />
+            {/* <h1 className="font-bold text-[20px]">Projects</h1> */}
+            <div className="flex overflow-scroll flex-wrap  gap-5 justify-center items-center">
+              {projects.map((val, index) => (
+                <Cards playstore={val.playStore} appStore={val.appStore}
+                  key={index} description={val.description} imageSrc={val.imageSrc} title={val.title} 
+                />
+              ))}
+            </div>
+            <br />
+            <br />
           </div>
-          <br/>
-          <br/>
-      </div>
         )}
         {currentSection === "Contact" && (
           <>
@@ -241,16 +194,17 @@ const FlipCard: React.FC<FlipCardProps> = () => {
             </p>
           </>
         )}
-  
       </div>
-  
+
       {/* Bottom Navigation for Mobile */}
-      <div className="fixed bottom-0 left-0 right-0 bg-black border-l-2 border-r-2 border-white rounded-b-[20px] text-white flex justify-around items-center py-2 md:hidden">
+      <div className="fixed bottom-0 left-0 right-0 bg-black border-l-2 border-r-2 border-white rounded-b-[20px] text-white flex justify-around items-center py-3 md:hidden">
         {["Home", "About", "Portfolio", "Contact"].map((section) => (
           <button
             key={section}
-            className={`flex-1 rounded-lg text-center py-2 ${
-              currentSection === section ? "bg-gray-700" : ""
+            className={`text-white cursor-pointer transition duration-300 ${
+              currentSection === section
+                ? "glossy-underline text-yellow-400 transform scale-110"
+                : "hover:text-yellow-300"
             }`}
             onClick={() => handleClick(section)}
           >
@@ -260,21 +214,20 @@ const FlipCard: React.FC<FlipCardProps> = () => {
       </div>
     </Fragment>
   );
-  
+
   return (
     <ReactCardFlip
-      containerClassName="w-full"
+      containerClassName="w-[85%]"
       isFlipped={isFlipped}
       flipDirection="horizontal"
     >
       {/* Front Side */}
       <FrontSide />
-  
+
       {/* Back Side */}
       <BackSide />
     </ReactCardFlip>
   );
-  
 };
 
 export default FlipCard;

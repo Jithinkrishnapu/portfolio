@@ -1,0 +1,55 @@
+.glossy-underline {
+    position: relative;
+  }
+  
+  .glossy-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #ffdd00, #ffaa00);
+    border-radius: 2px;
+    opacity: 0.8;
+    animation: glossy-animation 1s linear infinite;
+  }
+
+  .logo-3d {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffff;
+    position: relative;
+  }
+  
+  .logo-3d::before {
+    content: 'JK';
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #000000;
+    z-index: -1;
+    transform: translate(-0.2rem, 0.2rem) skewY(-10deg);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  
+  .logo-3d::after {
+    content: 'JK';
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    z-index: -2;
+    transform: translate(-0.4rem, 0.4rem) skewY(-10deg);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  
+  @keyframes glossy-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  

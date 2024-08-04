@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 
 interface Props{
     text:string;
+    fontSize:string
 }
 
 
-const AnimatedTextCharacter = ({ text }:Props) => {
+const AnimatedTextCharacter = ({ text,fontSize }:Props) => {
 // splitting text into letters
   const letters = Array.from(text);
 
@@ -46,7 +47,7 @@ const AnimatedTextCharacter = ({ text }:Props) => {
 
   return (
     <motion.div
-      style={{ overflow: "hidden", display: "flex", fontSize: "3rem" }}
+      style={{ overflow: "hidden", display: "flex", fontSize: fontSize || "3rem"}}
       variants={container}
       initial="hidden"
       animate="visible"

@@ -1,63 +1,36 @@
-import Image, { StaticImageData } from 'next/image';
+import React from "react";
+import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
+import Playstore from "../assets/playstore-svgrepo-com.svg";
+import Appstore from "../assets/appstore-svgrepo-com.svg";
 
 interface CardProps {
   title: string;
-  imageSrc: StaticImageData;
+  imageSrc: string;
   description: string;
+  appStore:string;
+  playstore:string;
 }
 
-const Card: React.FC<CardProps> = ({ title, imageSrc, description }) => {
+export default function Cards({ title, imageSrc, appStore,playstore }: CardProps) {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
-      <Image className="w-full" src={imageSrc} alt={title} width={400} height={200} />
-      <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">{title}</div>
-        <p className="text-gray-700 text-base">
-          {description}
-        </p>
-      </div>
-    </div>
+    <Card className="py-4 px-3 backdrop-blur-md  bg-white bg-opacity-10 mb-4 shadow-lg rounded-2xl overflow-hidden transition-shadow duration-300 hover:shadow-slate-400">
+      <CardBody className="overflow-visible py-2">
+        <Image
+          src={imageSrc}
+          alt="Card background"
+          className="object-cover rounded-xl"
+          width={270}
+        />
+      </CardBody>
+      <CardHeader className="pb-0 pt-2  flex-col items-start">
+        <div className="flex w-full justify-between items-center">
+          <h3 className="text-tiny capitalize font-bold text-white">{title}</h3>
+          <div className="flex gap-2 items-center">
+            {appStore && <Appstore height={20} width={20} />}
+            {playstore && <Playstore height={20} width={20} />}
+          </div>
+        </div>
+      </CardHeader>
+    </Card>
   );
 }
-
-export default Card;
-
-
-
-
- {/* Back Side */}
-//  <div className="lg:min-w-[700px] sm:min-w-[300px] max-w-md md:max-w-lg lg:max-w-5xl min-h-[500px]  max-h-fit bg-black text-white rounded-[25px] border-[2px] border-[#7c7d81]  flex flex-col justify-center items-start p-6 md:p-8 space-y-4">
-//  <h1 className="font-bold text-[20px]">Projects</h1>
-//  <div className="flex gap-2 items-center">
-//    {projects.map((val, index) => (
-//      <h3
-//        key={index}
-//        onClick={() => handleClick(index)}
-//        className="text-[16px] font-thin cursor-pointer"
-//      >
-//        {val.title}
-//      </h3>
-//    ))}
-//  </div>
-//  <h2 className="text-2xl md:text-3xl font-bold mb-4">Project Detail</h2>
-//  <ul className="space-y-2">
-//    <li className="text-base md:text-lg">
-//      <div className="flex gap-2 items-center " >
-//        <a href="#" className="text-blue-500 hover:underline">
-//        {projects[selectedProjectIndex].title}
-//      </a>
-//      {projects[selectedProjectIndex].playStore && <Link href={projects[selectedProjectIndex].playStore} ><Playstore height={20} width={20}/></Link> }
-//      {projects[selectedProjectIndex].appStore && <Link href={projects[selectedProjectIndex].appStore} ><Appstore height={20} width={20}/></Link> }
-//      </div>
-//    </li>
-//    <p className="text-sm md:text-base">
-//      {projects[selectedProjectIndex].details}
-//    </p>
-//  </ul>
-//  <button
-//    onClick={handleBackClick}
-//    className="mt-4 px-4 py-2 bg-white text-black rounded-lg"
-//  >
-//    Back to Home
-//  </button>
-// </div>
