@@ -12,10 +12,7 @@ export default function Home() {
         <meta name="description" content="A simple flip card example using react-card-flip in a Next.js project" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-        <div className='flex flex-col justify-center items-center p-[0_0.5rem]'>
         <Portfolio />
-      </div>
     </div>
   );
 }

@@ -9,6 +9,7 @@ import MykareBanner from "../assets/mykare.webp";
 import Cards from "./Card";
 import Navbar from "./NavBar";
 import Skills from "../pages/Skills";
+import ContactForm from "../pages/ContactForm";
 
 interface FlipCardProps {
   title: string;
@@ -20,7 +21,8 @@ const projects = [
   {
     title: "Mykare",
     description: "Description of Domposer.",
-    imageSrc:'https://play-lh.googleusercontent.com/Q0U4q2oN9Vio5sxuMv23yrCmhebKRaoFrK1P0URK22gdNpJ_FPzdi3ElGbKSfD2T6A=w832-h470-rw',
+    imageSrc:
+      "https://play-lh.googleusercontent.com/Q0U4q2oN9Vio5sxuMv23yrCmhebKRaoFrK1P0URK22gdNpJ_FPzdi3ElGbKSfD2T6A=w832-h470-rw",
     playStore:
       "https://play.google.com/store/apps/details?id=com.mykare.mykare&pcampaignid=web_share",
     appStore: "https://apps.apple.com/in/app/mykare/id6578440951",
@@ -30,7 +32,8 @@ const projects = [
   {
     title: "Karemitra",
     description: "Description of Domposer.",
-    imageSrc:'https://play-lh.googleusercontent.com/pobDHyVoZQE9aJos2wcdXWSRL1U4c-MV_0flC7mye_4w6pkJB6gLA2i5OurgyBOc8uLB=w832-h470-rw',
+    imageSrc:
+      "https://play-lh.googleusercontent.com/pobDHyVoZQE9aJos2wcdXWSRL1U4c-MV_0flC7mye_4w6pkJB6gLA2i5OurgyBOc8uLB=w832-h470-rw",
     playStore:
       "https://play.google.com/store/apps/details?id=com.mykare.karemitra&pcampaignid=web_share",
     appStore: "https://apps.apple.com/in/app/karemitra/id6480199168",
@@ -40,7 +43,8 @@ const projects = [
   {
     title: "Kareflow",
     description: "Description of Bay.js.",
-    imageSrc:'https://play-lh.googleusercontent.com/QAUPZA8-8tNKoWzBM_RmaYyrqadNoLXpNPFrfqwLU7-K-LAlDMq5Uwqvh67OHfLdmxY=w832-h470-rw',
+    imageSrc:
+      "https://play-lh.googleusercontent.com/QAUPZA8-8tNKoWzBM_RmaYyrqadNoLXpNPFrfqwLU7-K-LAlDMq5Uwqvh67OHfLdmxY=w832-h470-rw",
     playStore:
       "https://play.google.com/store/apps/details?id=com.mykare.crm&pcampaignid=web_share",
     appStore: "",
@@ -50,7 +54,8 @@ const projects = [
   {
     title: "Karebuddy",
     description: "Description of Cookiemunch.",
-    imageSrc:'https://play-lh.googleusercontent.com/qtJ2GTz_NbdWZm6L2F5GIWmDqyqmYfczdhIpUnWmOuI1hg9YablEj7XWWplQLxwGCkY4=w832-h470-rw',
+    imageSrc:
+      "https://play-lh.googleusercontent.com/qtJ2GTz_NbdWZm6L2F5GIWmDqyqmYfczdhIpUnWmOuI1hg9YablEj7XWWplQLxwGCkY4=w832-h470-rw",
     playStore:
       "https://play.google.com/store/apps/details?id=com.mykare.buddy&pcampaignid=web_share",
     appStore: "https://apps.apple.com/in/app/kare-buddy/id6449086925",
@@ -62,7 +67,7 @@ const projects = [
 
 const Home = () => {
   return (
-    <div className=" md:w-[70%] m-auto flex-col items-center " >
+    <div className=" md:w-[70%] m-auto flex-col items-center ">
       <div className="flex items-center mb-5 justify-center space-x-4">
         <h1 className="text-3xl md:text-4xl font-bold">
           <AnimatedTextCharacter fontSize="3rem" text="Welcome." />
@@ -73,7 +78,9 @@ const Home = () => {
           "Hi, I'm Jithin Krishna, a Senior Software Developer based in Kochi. With a strong background in mobile and web development, My expertise in Java, React Native, and Flutter allows me to deliver cutting-edge solutions that meet user needs and drive business success. I thrive on collaboration and am dedicated to pushing the boundaries of technology to create transformative digital experiences. "
         }
       </p>
-      <p className="text-gray-400 text-center absolute bottom-5 left-0 right-0 text-xs">@ 2024 jithnkrishna.com</p>
+      <p className="text-gray-400 text-center absolute bottom-5 left-0 right-0 text-xs">
+        @ 2024 jithnkrishna.com
+      </p>
     </div>
   );
 };
@@ -102,16 +109,21 @@ const FlipCard: React.FC<FlipCardProps> = () => {
   const FrontSide = () => (
     <Fragment>
       <Navbar currentSection={currentSection} handleClick={handleClick} />
-      <div className=" h-[85vh] bg-black  text-white rounded-[25px] border-[2px] border-[#7c7d81] cursor-pointer flex flex-col justify-center items-start p-6 md:p-8 space-y-4">
+      <div className=" h-[100vh] bg-black text-white rounded-[25px] border-[2px] border-[#7c7d81] cursor-pointer flex flex-col justify-center items-start p-6 md:p-8 space-y-4">
         {currentSection === "Home" && <Home />}
-        {currentSection === "About" && (
-          <div className=" py-5 mt-[70px] mx-auto overflow-scroll" >
-            <h1 className="text-3xl md:text-4xl text-center font-bold">About</h1>
+        {currentSection === "About Me" && (
+          <div className=" py-5 mt-[70px] mx-auto overflow-scroll">
+            {/* <h2 className="text-3xl font-bold mb-8 text-center">Myself</h2> */}
             <p className="text-sm text-center md:text-lg">
-              I am a Senior Software Developer with a strong background in
-              mobile and web development.
+              I am a versatile mobile app and web developer with expertise in
+              Android, Java, React Native, Flutter, and web technologies.
+              Skilled in creating user-friendly, high-quality applications and
+              websites, I have experience with CMS platforms and cross-platform
+              solutions. My focus is on delivering efficient, innovative digital
+              experiences tailored to client needs. Let's collaborate to bring
+              your ideas to life with seamless and engaging solutions.
             </p>
-            <Skills/>
+            <Skills />
           </div>
         )}
         {currentSection === "Portfolio" && (
@@ -128,17 +140,17 @@ const FlipCard: React.FC<FlipCardProps> = () => {
         )}
         {currentSection === "Contact" && (
           <>
-            <h1 className="text-3xl md:text-4xl font-bold">Contact</h1>
-            <p className="text-sm md:text-lg">
-              You can reach me via LinkedIn, GitHub, or GMail.
-            </p>
+          <div className="mt-[70px] flex-col mb-[70px] mx-auto overflow-scroll gap-2 justify-center">
+           <h2 className="text-2xl font-bold mb-4">Feel Free to Contact</h2>
+            <ContactForm />
+            </div>
           </>
         )}
       </div>
 
       {/* Bottom Navigation for Mobile */}
       <div className="fixed bottom-0 left-0 right-0 bg-black border-l-2 border-r-2 border-white rounded-b-[20px] text-white flex justify-around items-center py-3 md:hidden">
-        {["Home", "About", "Portfolio", "Contact"].map((section) => (
+        {["Home", "About Me", "Portfolio", "Contact"].map((section) => (
           <button
             key={section}
             className={`text-white cursor-pointer transition duration-300 ${
@@ -157,48 +169,49 @@ const FlipCard: React.FC<FlipCardProps> = () => {
 
   const BackSide = () => (
     <Fragment>
-     <Navbar currentSection={currentSection} handleClick={handleClick} />
-      <div className=" h-[85vh] bg-black text-white rounded-[25px] border-[2px] border-[#7c7d81] cursor-pointer flex flex-col justify-center items-start p-6 md:p-8 space-y-4">
+      <Navbar currentSection={currentSection} handleClick={handleClick} />
+      <div className=" h-[100vh] bg-black text-white rounded-[25px] border-[2px] border-[#7c7d81] cursor-pointer flex flex-col justify-center items-start p-6 md:p-8 space-y-4">
         {currentSection === "Home" && <Home />}
-        {currentSection === "About" && (
-          <div className=" py-5 mt-[70px] mx-auto overflow-scroll" >
-            <h2 className="text-3xl font-bold mb-8 text-center">About</h2>
+        {currentSection === "About Me" && (
+          <div className=" py-5 mt-[70px] mx-auto overflow-scroll">
+            {/* <h2 className="text-3xl font-bold mb-8 text-center">Myself</h2> */}
             <p className="text-sm text-center md:text-lg">
-              I am a Senior Software Developer with a strong background in
-              mobile and web development.
+              I am a versatile mobile app and web developer with expertise in
+              Android, Java, React Native, Flutter, and web technologies.
+              Skilled in creating user-friendly, high-quality applications and
+              websites, I have experience with CMS platforms and cross-platform
+              solutions. My focus is on delivering efficient, innovative digital
+              experiences tailored to client needs. Let's collaborate to bring
+              your ideas to life with seamless and engaging solutions.
             </p>
-            <Skills/>
+            <Skills />
           </div>
         )}
         {currentSection === "Portfolio" && (
-          <div className="flex-1 justify-center overflow-scroll items-center px-5">
-            <br />
-            <br />
+          <>
             {/* <h1 className="font-bold text-[20px]">Projects</h1> */}
-            <div className="flex overflow-scroll flex-wrap  gap-5 justify-center items-center">
+            <div className="flex flex-wrap mt-[70px] mb-[70px] overflow-scroll gap-2 justify-center items-center">
               {projects.map((val, index) => (
                 <Cards playstore={val.playStore} appStore={val.appStore}
                   key={index} description={val.description} imageSrc={val.imageSrc} title={val.title} 
                 />
               ))}
             </div>
-            <br />
-            <br />
-          </div>
+          </>
         )}
-        {currentSection === "Contact" && (
+      {currentSection === "Contact" && (
           <>
-            <h1 className="text-3xl md:text-4xl font-bold">Contact</h1>
-            <p className="text-sm md:text-lg">
-              You can reach me via LinkedIn, GitHub, or GMail.
-            </p>
+          <div className="mt-[70px] w-full flex-col mb-[70px] mx-auto overflow-scroll gap-2 justify-center">
+           <h2 className="text-2xl font-bold mb-4">Feel Free to Contact</h2>
+            <ContactForm />
+            </div>
           </>
         )}
       </div>
 
       {/* Bottom Navigation for Mobile */}
       <div className="fixed bottom-0 left-0 right-0 bg-black border-l-2 border-r-2 border-white rounded-b-[20px] text-white flex justify-around items-center py-3 md:hidden">
-        {["Home", "About", "Portfolio", "Contact"].map((section) => (
+        {["Home", "About Me", "Portfolio", "Contact"].map((section) => (
           <button
             key={section}
             className={`text-white cursor-pointer transition duration-300 ${
@@ -217,7 +230,7 @@ const FlipCard: React.FC<FlipCardProps> = () => {
 
   return (
     <ReactCardFlip
-      containerClassName="w-[85%]"
+      containerClassName="h-[100vh]"
       isFlipped={isFlipped}
       flipDirection="horizontal"
     >

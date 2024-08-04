@@ -5,14 +5,17 @@ import AnimatedTextCharacter from '../component/AnimationTextCharector';
 const skills = [
   'JavaScript',
   'TypeScript',
+  'Java',
   'React',
+  'React Native',
+  'Flutter',
   'Next.js',
   'Tailwind CSS',
   'Node.js',
+  'Spring Boot',
   'Express',
   'MongoDB',
-  'GraphQL',
-  'Docker'
+  'PostgresQL'
 ];
 
 const Skills: React.FC = () => {

@@ -25,15 +25,13 @@ const Portfolio: React.FC = () => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
 
   return (
-    <div className="flex h-[100vh] w-full flex-col items-center justify-center  px-2 sm:px-4 bg-[#5b5c60]">
-      {/* <div className="w-full flex justify-center items-center px-2 sm:px-4"> */}
+
         <FlipCard
           title={projects[selectedProjectIndex].title}
           description={projects[selectedProjectIndex].description}
           details={projects[selectedProjectIndex].details}
         />
-      {/* </div> */}
-    </div>
+  
   );
 };
 

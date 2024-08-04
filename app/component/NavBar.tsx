@@ -15,7 +15,7 @@ const Navbar = ({ currentSection, handleClick }:Props) => {
       <h1 className="logo-3d font-mono">JK</h1>
       </div>
       <div className="hidden bg-black md:flex space-x-4">
-        {["Home", "About", "Portfolio", "Contact"].map((section) => (
+        {["Home", "About Me", "Portfolio", "Contact"].map((section) => (
           <h1
             key={section}
             className={`text-white cursor-pointer transition duration-300 ${
