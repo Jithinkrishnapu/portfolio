@@ -115,13 +115,13 @@ const FlipCard: React.FC<FlipCardProps> = () => {
           <div className=" py-5 mt-[70px] mx-auto overflow-scroll">
             {/* <h2 className="text-3xl font-bold mb-8 text-center">Myself</h2> */}
             <p className="text-sm text-center md:text-lg">
-              I am a versatile mobile app and web developer with expertise in
+             {`I am a versatile mobile app and web developer with expertise in
               Android, Java, React Native, Flutter, and web technologies.
               Skilled in creating user-friendly, high-quality applications and
               websites, I have experience with CMS platforms and cross-platform
               solutions. My focus is on delivering efficient, innovative digital
               experiences tailored to client needs. Let's collaborate to bring
-              your ideas to life with seamless and engaging solutions.
+              your ideas to life with seamless and engaging solutions.`}
             </p>
             <Skills />
           </div>
@@ -176,13 +176,13 @@ const FlipCard: React.FC<FlipCardProps> = () => {
           <div className=" py-5 mt-[70px] mx-auto overflow-scroll">
             {/* <h2 className="text-3xl font-bold mb-8 text-center">Myself</h2> */}
             <p className="text-sm text-center md:text-lg">
-              I am a versatile mobile app and web developer with expertise in
+            {`I am a versatile mobile app and web developer with expertise in
               Android, Java, React Native, Flutter, and web technologies.
               Skilled in creating user-friendly, high-quality applications and
               websites, I have experience with CMS platforms and cross-platform
               solutions. My focus is on delivering efficient, innovative digital
               experiences tailored to client needs. Let's collaborate to bring
-              your ideas to life with seamless and engaging solutions.
+              your ideas to life with seamless and engaging solutions.`}
             </p>
             <Skills />
           </div>
