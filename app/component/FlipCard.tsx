@@ -138,13 +138,13 @@ const FlipCard: React.FC<FlipCardProps> = () => {
             </div>
           </>
         )}
-        {currentSection === "Contact" && (
-          <>
-          <div className="mt-[70px] flex-col mb-[70px] mx-auto overflow-scroll gap-2 justify-center">
-           <h2 className="text-2xl font-bold mb-4">Feel Free to Contact</h2>
+         {currentSection === "Contact" && (
+          <div className="w-[100%] overflow-scroll py-[70px]" >
+           <h2 className="text-2xl text-center font-bold mb-4">Feel Free to Contact</h2>
+          <div className="mt-[70px] w-[80%] flex mb-[70px] items-center mx-auto  gap-2 justify-center">
             <ContactForm />
             </div>
-          </>
+          </div>
         )}
       </div>
 
@@ -200,12 +200,12 @@ const FlipCard: React.FC<FlipCardProps> = () => {
           </>
         )}
       {currentSection === "Contact" && (
-          <>
-          <div className="mt-[70px] w-full flex-col mb-[70px] mx-auto overflow-scroll gap-2 justify-center">
-           <h2 className="text-2xl font-bold mb-4">Feel Free to Contact</h2>
+          <div className="w-[100%] overflow-scroll py-[70px] " >
+           <h2 className="text-2xl text-center font-bold mb-4">Feel Free to Contact</h2>
+          <div className="mt-[70px] w-[80%] flex mb-[70px] items-center mx-auto  gap-2 justify-center">
             <ContactForm />
             </div>
-          </>
+          </div>
         )}
       </div>
 
@@ -230,7 +230,7 @@ const FlipCard: React.FC<FlipCardProps> = () => {
 
   return (
     <ReactCardFlip
-      containerClassName="h-[100vh]"
+      containerClassName="h-full "
       isFlipped={isFlipped}
       flipDirection="horizontal"
     >
