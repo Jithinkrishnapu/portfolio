@@ -6,13 +6,13 @@ import GMail from "../assets/gmail-svgrepo-com.svg";
 import '../styles/Navbar.css'
 
 interface Props {
-    currentSection:string, handleClick:(section:string)=>void
+    currentSection:string, handleClick:(section:string)=>void,handleBackClick:()=>void
 }
-const Navbar = ({ currentSection, handleClick }:Props) => {
+const Navbar = ({ currentSection, handleClick,handleBackClick }:Props) => {
   return (
     <div className="flex-[1] px-5 top-3 z-30 md:z-10 h-[80px] overflow-hidden bg-black flex absolute w-[95%] left-[8px] justify-between items-center">
       <div className="flex-[3] ">
-      <h1 className="logo-3d font-mono">JK</h1>
+      <h1 onClick={handleBackClick} className="logo-3d font-mono">JK</h1>
       </div>
       <div className="hidden bg-black md:flex space-x-4">
         {["Home", "About Me", "Portfolio", "Contact"].map((section) => (

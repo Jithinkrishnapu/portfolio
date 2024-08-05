@@ -108,7 +108,7 @@ const FlipCard: React.FC<FlipCardProps> = () => {
 
   const FrontSide = () => (
     <Fragment>
-      <Navbar currentSection={currentSection} handleClick={handleClick} />
+      <Navbar handleBackClick={handleBackClick} currentSection={currentSection} handleClick={handleClick} />
       <div className=" h-[100vh] bg-black text-white rounded-[25px] border-[2px] border-[#7c7d81] cursor-pointer flex flex-col justify-center items-start p-6 md:p-8 space-y-4">
         {currentSection === "Home" && <Home />}
         {currentSection === "About Me" && (
@@ -169,7 +169,7 @@ const FlipCard: React.FC<FlipCardProps> = () => {
 
   const BackSide = () => (
     <Fragment>
-      <Navbar currentSection={currentSection} handleClick={handleClick} />
+      <Navbar handleBackClick={handleBackClick} currentSection={currentSection} handleClick={handleClick} />
       <div className=" h-[100vh] bg-black text-white rounded-[25px] border-[2px] border-[#7c7d81] cursor-pointer flex flex-col justify-center items-start p-6 md:p-8 space-y-4">
         {currentSection === "Home" && <Home />}
         {currentSection === "About Me" && (

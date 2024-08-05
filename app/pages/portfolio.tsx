@@ -25,13 +25,11 @@ const Portfolio: React.FC = () => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
 
   return (
-
         <FlipCard
           title={projects[selectedProjectIndex].title}
           description={projects[selectedProjectIndex].description}
           details={projects[selectedProjectIndex].details}
         />
-  
   );
 };
 
