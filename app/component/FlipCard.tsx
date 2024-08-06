@@ -109,7 +109,7 @@ const FlipCard: React.FC<FlipCardProps> = () => {
   const FrontSide = () => (
     <Fragment>
       <Navbar handleBackClick={handleBackClick} currentSection={currentSection} handleClick={handleClick} />
-      <div className=" h-[100vh] bg-black text-white rounded-[25px] border-[2px] border-[#7c7d81] cursor-pointer flex flex-col justify-center items-start p-6 md:p-8 space-y-4">
+      <div className=" h-[90vh] bg-black text-white rounded-[25px] border-[2px] border-[#7c7d81] cursor-pointer flex flex-col justify-center items-start p-6 md:p-8 space-y-4">
         {currentSection === "Home" && <Home />}
         {currentSection === "About Me" && (
           <div className=" py-5 mt-[70px] mx-auto overflow-scroll">
@@ -149,7 +149,7 @@ const FlipCard: React.FC<FlipCardProps> = () => {
       </div>
 
       {/* Bottom Navigation for Mobile */}
-      <div className="fixed bottom-0 left-0 right-0 bg-black border-l-2 border-r-2 border-white rounded-b-[20px] text-white flex justify-around items-center py-3 md:hidden">
+      <div className="fixed bottom-0 left-0 right-0 bg-black border-l-2 border-r-2 border-[#7c7d81] rounded-b-[20px] text-white flex justify-around items-center py-3 md:hidden">
         {["Home", "About Me", "Portfolio", "Contact"].map((section) => (
           <button
             key={section}
@@ -170,7 +170,7 @@ const FlipCard: React.FC<FlipCardProps> = () => {
   const BackSide = () => (
     <Fragment>
       <Navbar handleBackClick={handleBackClick} currentSection={currentSection} handleClick={handleClick} />
-      <div className=" h-[100vh] bg-black text-white rounded-[25px] border-[2px] border-[#7c7d81] cursor-pointer flex flex-col justify-center items-start p-6 md:p-8 space-y-4">
+      <div className=" h-[90vh] bg-black text-white rounded-[25px] border-[2px] border-[#7c7d81] cursor-pointer flex flex-col justify-center items-start p-6 md:p-8 space-y-4">
         {currentSection === "Home" && <Home />}
         {currentSection === "About Me" && (
           <div className=" py-5 mt-[70px] mx-auto overflow-scroll">
@@ -210,7 +210,7 @@ const FlipCard: React.FC<FlipCardProps> = () => {
       </div>
 
       {/* Bottom Navigation for Mobile */}
-      <div className="fixed bottom-0 left-0 right-0 bg-black border-l-2 border-r-2 border-white rounded-b-[20px] text-white flex justify-around items-center py-3 md:hidden">
+      <div className="fixed bottom-0 left-0 right-0 bg-black border-l-2 border-r-2 border-[#7c7d81] rounded-b-[20px] text-white flex justify-around items-center py-3 md:hidden">
         {["Home", "About Me", "Portfolio", "Contact"].map((section) => (
           <button
             key={section}
@@ -230,7 +230,7 @@ const FlipCard: React.FC<FlipCardProps> = () => {
 
   return (
     <ReactCardFlip
-      containerClassName="h-full "
+    containerClassName="w-full"
       isFlipped={isFlipped}
       flipDirection="horizontal"
     >

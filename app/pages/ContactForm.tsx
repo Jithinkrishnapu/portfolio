@@ -10,35 +10,29 @@ const ContactForm: React.FC = () => {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
-    const formData = {
-      name: data.get("name"),
-      email: data.get("email"),
-      phone: data.get("phone"),
-      services: data.get("services"),
-    };
-
-    try {
-      const response = await fetch("/api/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        console.log("Email sent successfully:", result);
-      } else {
-        console.error("Error sending email:", response.statusText);
-      }
-    } catch (error) {
-      console.error("Error sending email:", error);
+  
+    const response = await fetch('/api/sendEmail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: data.get('name'),
+        email: data.get('email'),
+        phone: data.get('phone'),
+        services: data.get('services'),
+      }),
+    });
+  
+    if (response.ok) {
+      console.log('Email sent successfully!');
+    } else {
+      console.error('Error sending email');
     }
   }
 
   return (
-    <div className="flex w-[100%] justify-between items-center md:flex-nowrap flex-wrap gap-5 mt-[70px] mb-[70px]">
+    <div className="flex w-[100%] justify-between items-center md:flex-nowrap flex-wrap gap-5 mb-[70px]">
       <div className="w-full">
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>

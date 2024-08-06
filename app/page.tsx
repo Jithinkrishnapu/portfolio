@@ -6,9 +6,9 @@ import Portfolio from './pages/portfolio';
 export default function Home() {
 
   return (
-    <div>
+    <div className='px-2 h-[100vh] flex justify-center items-center bg-white' >
       <Head>
-        <title>Flip Card Example</title>
+        <title>Portfolio</title>
         <meta name="description" content="A simple flip card example using react-card-flip in a Next.js project" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
