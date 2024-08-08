@@ -1,3 +1,4 @@
+'use client'
 import React, { Fragment, useEffect, useState } from "react";
 import ReactCardFlip from "react-card-flip";
 import Github from "../assets/github-svgrepo-com.svg";

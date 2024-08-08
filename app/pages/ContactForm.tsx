@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import Github from "../assets/github-svgrepo-com.svg";
 import LinkedIn from "../assets/linkedin-svgrepo-com.svg";
@@ -7,27 +8,22 @@ import Instagram from "../assets/instagram-svgrepo-com.svg";
 import Link from "next/link";
 
 const ContactForm: React.FC = () => {
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    // e.preventDefault();
-    // const data = new FormData(e.currentTarget);
-    // const response = await fetch('/api/sendEmail', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     name: data.get('name'),
-    //     email: data.get('email'),
-    //     phone: data.get('phone'),
-    //     services: data.get('services'),
-    //   }),
-    // });
+    e.preventDefault(); // Prevent default form submission
+    const data = new FormData(e.currentTarget);
+    
+    const response = await fetch('https://script.google.com/macros/s/AKfycbyZXHjIWDakIZrXHLa-mugUchB8vns8sXUZ1lALXTe1mAJCcnQMC6h_T2-eSxL2aapl/exec', {
+      method: 'POST',
+      body: data,
+    });
   
-    // if (response.ok) {
-    //   console.log('Email sent successfully!');
-    // } else {
-    //   console.error('Error sending email');
-    // }
+    if (response.ok) {
+      console.log('Form submitted successfully!');
+      window.location.reload(); // Reload the page on success
+    } else {
+      console.error('Error submitting form');
+    }
   }
 
   return (
@@ -92,6 +88,7 @@ const ContactForm: React.FC = () => {
           </div>
           <button
             type="submit"
+            value="Submit"
             className="w-full bg-gray-600 p-4 rounded-md text-white font-semibold hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-300"
           >
             Submit
