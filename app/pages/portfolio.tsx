@@ -21,8 +21,12 @@ const projects = [
   // Add more projects as needed
 ];
 
-const Portfolio: React.FC = () => {
+const Portfolio: React.FC = async() => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
+
+  // const data = await getSheetData()
+
+  // console.log(data)
 
   return (
         <FlipCard

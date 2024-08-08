@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import ReactCardFlip from "react-card-flip";
 import Github from "../assets/github-svgrepo-com.svg";
 import LinkedIn from "../assets/linkedin-svgrepo-com.svg";
@@ -89,6 +89,19 @@ const FlipCard: React.FC<FlipCardProps> = () => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const [currentSection, setCurrentSection] = useState("Home");
+
+  const [sheetData, setSheetData] = useState([]);
+
+  useEffect(() => {
+      const fetchData = async () => {
+          const response = await fetch('/api/getSheetData');
+          const data = await response.json();
+          setSheetData(data);
+      };
+
+      fetchData();
+  }, []);
+
 
   const handleClick = (section: string) => {
     if (currentSection !== section) {

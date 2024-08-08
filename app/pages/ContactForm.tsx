@@ -8,27 +8,26 @@ import Link from "next/link";
 
 const ContactForm: React.FC = () => {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const data = new FormData(e.currentTarget);
+    // e.preventDefault();
+    // const data = new FormData(e.currentTarget);
+    // const response = await fetch('/api/sendEmail', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     name: data.get('name'),
+    //     email: data.get('email'),
+    //     phone: data.get('phone'),
+    //     services: data.get('services'),
+    //   }),
+    // });
   
-    const response = await fetch('/api/sendEmail', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: data.get('name'),
-        email: data.get('email'),
-        phone: data.get('phone'),
-        services: data.get('services'),
-      }),
-    });
-  
-    if (response.ok) {
-      console.log('Email sent successfully!');
-    } else {
-      console.error('Error sending email');
-    }
+    // if (response.ok) {
+    //   console.log('Email sent successfully!');
+    // } else {
+    //   console.error('Error sending email');
+    // }
   }
 
   return (
