@@ -18,54 +18,6 @@ interface FlipCardProps {
   details: string;
 }
 
-const projects = [
-  {
-    title: "Mykare",
-    description: "Description of Domposer.",
-    imageSrc:
-      "https://play-lh.googleusercontent.com/Q0U4q2oN9Vio5sxuMv23yrCmhebKRaoFrK1P0URK22gdNpJ_FPzdi3ElGbKSfD2T6A=w832-h470-rw",
-    playStore:
-      "https://play.google.com/store/apps/details?id=com.mykare.mykare&pcampaignid=web_share",
-    appStore: "https://apps.apple.com/in/app/mykare/id6578440951",
-    details:
-      "MyKare is your comprehensive companion for managing and tracking your healthcare journey. Designed to simplify healthcare management, MyKare allows patients to monitor their lead status stage by stage, ensuring a smooth and informed experience.",
-  },
-  {
-    title: "Karemitra",
-    description: "Description of Domposer.",
-    imageSrc:
-      "https://play-lh.googleusercontent.com/pobDHyVoZQE9aJos2wcdXWSRL1U4c-MV_0flC7mye_4w6pkJB6gLA2i5OurgyBOc8uLB=w832-h470-rw",
-    playStore:
-      "https://play.google.com/store/apps/details?id=com.mykare.karemitra&pcampaignid=web_share",
-    appStore: "https://apps.apple.com/in/app/karemitra/id6480199168",
-    details:
-      "In a world where access to quality healthcare can often come at a steep price, KareMitra stands out as a beacon of hope, offering a revolutionary platform that empowers individuals to explore affordable surgical options without compromising on quality. With KareMitra, navigating the complex landscape of healthcare has never been easier or more rewarding.",
-  },
-  {
-    title: "Kareflow",
-    description: "Description of Bay.js.",
-    imageSrc:
-      "https://play-lh.googleusercontent.com/QAUPZA8-8tNKoWzBM_RmaYyrqadNoLXpNPFrfqwLU7-K-LAlDMq5Uwqvh67OHfLdmxY=w832-h470-rw",
-    playStore:
-      "https://play.google.com/store/apps/details?id=com.mykare.crm&pcampaignid=web_share",
-    appStore: "",
-    details:
-      "KareFlow is an advanced healthcare CRM app geared to track patient flows with ease. Manage patient flows with customised tags and statuses, organize your feed with advanced filters, and add comments for detailed case insights to follow up with patients efficiently and streamline patient flow from onboarding to surgery. With a user-friendly interface and personalized dashboards, tracking incoming patients and managing prospects effectively are intuitive and efficient.",
-  },
-  {
-    title: "Karebuddy",
-    description: "Description of Cookiemunch.",
-    imageSrc:
-      "https://play-lh.googleusercontent.com/qtJ2GTz_NbdWZm6L2F5GIWmDqyqmYfczdhIpUnWmOuI1hg9YablEj7XWWplQLxwGCkY4=w832-h470-rw",
-    playStore:
-      "https://play.google.com/store/apps/details?id=com.mykare.buddy&pcampaignid=web_share",
-    appStore: "https://apps.apple.com/in/app/kare-buddy/id6449086925",
-    details:
-      "Be the ideal buddy to a patient by helping them have the most convenient medical journey from the moment they step into the hospital till discharge. An extensive patient data collection tool used to track their journey from appointment to surgery to further care and discharge. Easy to navigate interface to track multiple patients' treatment status and for quick daily updates.",
-  },
-  // Add more projects as needed
-];
-
 const Home = () => {
   return (
     <div className=" md:w-[70%] m-auto flex-col items-center ">
@@ -95,8 +47,9 @@ const FlipCard: React.FC<FlipCardProps> = () => {
 
   useEffect(() => {
       const fetchData = async () => {
-          const response = await fetch('/api/getSheetData');
+          const response = await fetch('/api/getNotionData');
           const data = await response.json();
+          console.log("data=======",data)
           setSheetData(data);
       };
 
@@ -144,9 +97,9 @@ const FlipCard: React.FC<FlipCardProps> = () => {
           <>
             {/* <h1 className="font-bold text-[20px]">Projects</h1> */}
             <div className="flex flex-wrap mt-[70px] mb-[70px] overflow-scroll gap-2 justify-center items-center">
-              {projects.map((val, index) => (
-                <Cards playstore={val.playStore} appStore={val.appStore}
-                  key={index} description={val.description} imageSrc={val.imageSrc} title={val.title} 
+              {sheetData.map((val:any, index) => (
+                <Cards playstore={val?.properties.playStore.url} appStore={val?.properties?.appStore?.url}
+                  key={index} description={val.description} imageSrc={val.properties?.imageSrc?.url} title={val.properties?.title.rich_text[0].plain_text} 
                 />
               ))}
             </div>
@@ -205,9 +158,9 @@ const FlipCard: React.FC<FlipCardProps> = () => {
           <>
             {/* <h1 className="font-bold text-[20px]">Projects</h1> */}
             <div className="flex flex-wrap mt-[70px] mb-[70px] overflow-scroll gap-2 justify-center items-center">
-              {projects.map((val, index) => (
-                <Cards playstore={val.playStore} appStore={val.appStore}
-                  key={index} description={val.description} imageSrc={val.imageSrc} title={val.title} 
+              {sheetData.map((val:any, index) => (
+                <Cards playstore={val?.properties.playStore.url} appStore={val?.properties?.appStore?.url}
+                  key={index} description={val.description} imageSrc={val.properties?.imageSrc?.url} title={val.properties?.title.rich_text[0].plain_text} 
                 />
               ))}
             </div>
