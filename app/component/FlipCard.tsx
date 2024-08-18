@@ -46,15 +46,16 @@ const FlipCard: React.FC<FlipCardProps> = () => {
   const [sheetData, setSheetData] = useState([]);
 
   useEffect(() => {
+    if(currentSection === "Portfolio"){
       const fetchData = async () => {
-          const response = await fetch('/api/getNotionData');
-          const data = await response.json();
-          console.log("data=======",data)
-          setSheetData(data);
-      };
-
-      fetchData();
-  }, []);
+        const response = await fetch('/api/getNotionData');
+        const data = await response.json();
+        console.log("data=======",data)
+        setSheetData(data);
+    };
+    fetchData();
+    }
+  }, [currentSection]);
 
 
   const handleClick = (section: string) => {
