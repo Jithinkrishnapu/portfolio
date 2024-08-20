@@ -1,4 +1,5 @@
 // pages/portfolio.tsx
+'use client'
 import React, { useState } from 'react';
 import FlipCard from '../component/FlipCard';
 
@@ -27,6 +28,7 @@ const Portfolio: React.FC = async() => {
   // const data = await getSheetData()
 
   // console.log(data)
+
 
   return (
         <FlipCard
