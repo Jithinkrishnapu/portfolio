@@ -1,8 +1,11 @@
 import {NextResponse } from 'next/server';
 import { Client } from '@notionhq/client';
+import { revalidatePath } from 'next/cache';
 
 const notion = new Client({ auth: process.env.NOTION_KEY });
 const NOTION_DB = process.env.NOTION_DB;
+
+export const revalidate = 0
 
 export async function GET() {
     try {
