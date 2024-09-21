@@ -80,7 +80,7 @@ const FlipCard: React.FC<FlipCardProps> = () => {
       <div className=" h-[90vh] bg-black text-white rounded-[25px] border-[2px] border-[#7c7d81] cursor-pointer flex flex-col justify-center items-start p-6 md:p-8 space-y-4">
         {currentSection === "Home" && <Home />}
         {currentSection === "About Me" && (
-          <div className=" py-5 mt-[70px] mx-auto overflow-scroll">
+          <div className=" py-5 mt-[70px] mx-auto overflow-auto">
             {/* <h2 className="text-3xl font-bold mb-8 text-center">Myself</h2> */}
             <p className="text-sm text-center md:text-lg">
              {`I am a versatile mobile app and web developer with expertise in
