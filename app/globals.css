@@ -3,47 +3,84 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 255, 255, 255; /* Always white text for glassmorphism contrast */
+  --background-start-rgb: 17, 24, 39; /* Dark gray-blue */
+  --background-end-rgb: 17, 24, 39; /* Consistent dark background */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 17, 24, 39;
+    --background-end-rgb: 17, 24, 39;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  body {
+    @apply text-[rgb(var(--foreground-rgb))] overflow-auto;
+    background: rgb(var(--background-start-rgb)); /* Solid dark background */
+  }
+
+  /* Hide scrollbar but allow scrolling */
+  * {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  *::-webkit-scrollbar {
+    @apply hidden; /* Safari and Chrome */
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
 }
 
-/* Hide scrollbar for all elements */
-* {
-  scrollbar-width: none; /* For Firefox */
-  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+/* Blob gradient styles */
+.blob-container {
+  @apply relative isolate;
 }
 
-/* Hide scrollbar for WebKit browsers */
-*::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
+.blob-background {
+  @apply absolute top-1/2 left-1/2 w-[80vw] h-[80vh] -translate-x-1/2 -translate-y-1/2;
+  background: radial-gradient(
+    circle at center,
+    rgba(147, 51, 234, 0.3) 0%, /* Slightly more opaque for visibility */
+    rgba(79, 70, 229, 0.25) 30%,
+    rgba(17, 24, 39, 0) 70%
+  );
+  filter: blur(60px);
+  border-radius: 50% 30% 40% 60% / 60% 40% 30% 50%;
+  animation: blobAnimation 15s infinite ease-in-out;
+  @apply z-0 pointer-events-none;
 }
 
-/* Allow scrolling without visible scrollbar */
-body {
-  overflow: auto; /* Ensure overflow is set to allow scrolling */
+/* Animation for blob movement */
+@keyframes blobAnimation {
+  0% {
+    border-radius: 50% 30% 40% 60% / 60% 40% 30% 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    border-radius: 40% 60% 30% 50% / 50% 30% 60% 40%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  50% {
+    border-radius: 60% 40% 50% 30% / 30% 60% 40% 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  75% {
+    border-radius: 30% 50% 60% 40% / 40% 50% 30% 60%;
+    transform: translate(-50%, -50%) rotate(270deg);
+  }
+  100% {
+    border-radius: 50% 30% 40% 60% / 60% 40% 30% 50%;
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }

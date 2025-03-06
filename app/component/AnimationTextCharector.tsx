@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { motion } from "framer-motion";
 
 
@@ -8,7 +8,7 @@ interface Props{
 }
 
 
-const AnimatedTextCharacter = ({ text,fontSize }:Props) => {
+const AnimatedTextCharacter: FC<Props> = ({ text, fontSize }) => {
 // splitting text into letters
   const letters = Array.from(text);
 
