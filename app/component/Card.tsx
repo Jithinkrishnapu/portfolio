@@ -13,7 +13,7 @@ interface CardProps {
 
 export default function Cards({ title, imageSrc, appStore,playstore }: CardProps) {
   return (
-    <Card className="py-4 px-3 backdrop-blur-md  bg-white bg-opacity-10 mb-4 shadow-lg rounded-2xl overflow-hidden transition-shadow duration-300 hover:shadow-slate-400">
+    <Card className="py-4 px-3 backdrop-blur-md  bg-white bg-opacity-10 mb-4 shadow-lg rounded-2xl overflow-hidden transition-shadow duration-300 hover:shadow-gray-800">
       <CardBody className="overflow-visible py-2">
         <Image
           src={imageSrc}

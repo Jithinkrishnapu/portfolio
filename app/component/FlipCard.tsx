@@ -1,213 +1,188 @@
-'use client'
-import React, { Fragment, useEffect, useState } from "react";
-import ReactCardFlip from "react-card-flip";
-import Github from "../assets/github-svgrepo-com.svg";
-import LinkedIn from "../assets/linkedin-svgrepo-com.svg";
-import GMail from "../assets/gmail-svgrepo-com.svg";
-import Link from "next/link";
-import AnimatedTextCharacter from "./AnimationTextCharector";
-import MykareBanner from "../assets/mykare.webp";
-import Cards from "./Card";
-import Navbar from "./NavBar";
-import Skills from "../pages/Skills";
-import ContactForm from "../pages/ContactForm";
+'use client';
+import React, { Fragment, useEffect, useState } from 'react';
+import ReactCardFlip from 'react-card-flip';
+import { motion } from 'framer-motion';
+import Skills from '../pages/Skills';
+import ContactForm from '../pages/ContactForm';
+import Cards from './Card';
+import AnimatedTextCharacter from './AnimationTextCharector';
+import Navbar from './NavBar';
 
+// Define FlipCard props interface
 interface FlipCardProps {
-  title: string;
-  description: string;
-  details: string;
+  title?: string;
+  description?: string;
+  details?: string;
 }
 
-const Home = () => {
-  return (
-    <div className=" md:w-[70%] m-auto flex-col items-center ">
-      <div className="flex items-center mb-5 justify-center space-x-4">
-        <h1 className="text-3xl md:text-4xl font-bold">
-          <AnimatedTextCharacter fontSize="3rem" text="Welcome." />
-        </h1>
-      </div>
-      <p className="text-sm md:text-center mb-5 md:text-lg">
-        {
-          "Hi, I'm Jithin Krishna, a Senior Software Developer based in Kochi. With a strong background in mobile and web development, My expertise in Java, React Native, and Flutter allows me to deliver cutting-edge solutions that meet user needs and drive business success. I thrive on collaboration and am dedicated to pushing the boundaries of technology to create transformative digital experiences. "
-        }
-      </p>
-      <p className="text-gray-400 text-center absolute bottom-5 left-0 right-0 text-xs">
-        @ 2024 jithnkrishna.com
-      </p>
-    </div>
-  );
-};
+// Section content components
+const HomeSection = () => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    className="flex flex-col gap-3 items-center text-center space-y-4"
+  >
+    <h1 className="text-3xl md:text-4xl font-bold">
+      <AnimatedTextCharacter fontSize="3rem" text="Welcome." />
+    </h1>
+    <p className="text-sm md:text-lg max-w-2xl">
+      Hi, I'm Jithin Krishna, a Senior Software Developer based in Kochi. With expertise in Java, React Native, and Flutter, I craft innovative mobile and web solutions that drive success and delight users.
+    </p>
+  </motion.div>
+);
 
+const AboutSection = () => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.6 }}
+    className="py-5 overflow-auto h-[70vh] text-center space-y-6"
+  >
+    <p className="text-sm md:text-lg max-w-2xl mx-auto">
+      I'm a versatile developer skilled in Android, Java, React Native, Flutter, and web technologies. I focus on creating seamless, user-friendly digital experiences tailored to client needs.
+    </p>
+    <Skills />
+  </motion.div>
+);
+
+const PortfolioSection = ({ sheetData }: { sheetData: any[] }) => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.6 }}
+    className="flex flex-wrap gap-4 justify-center h-[60vh] mb-10 overflow-scroll"
+  >
+    {sheetData.length > 0 ? (
+      sheetData.map((val: any, index: number) => (
+        <Cards
+          key={index}
+          playstore={val?.properties?.playStore?.url}
+          appStore={val?.properties?.appStore?.url}
+          description={val.description}
+          imageSrc={val.properties?.imageSrc?.url}
+          title={val.properties?.title?.rich_text[0]?.plain_text}
+        />
+      ))
+    ) : (
+      <p className="text-center text-gray-400">No projects available.</p>
+    )}
+  </motion.div>
+);
+
+const ContactSection = () => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.6 }}
+    className="w-full py-16 overflow-auto"
+  >
+    <h2 className="text-2xl font-bold text-center mb-6">Feel Free to Contact</h2>
+    <div className="w-11/12 md:w-3/5 mx-auto">
+      <ContactForm />
+    </div>
+  </motion.div>
+);
+
+// Main FlipCard Component
 const FlipCard: React.FC<FlipCardProps> = () => {
   const [isFlipped, setIsFlipped] = useState(false);
-  const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
-  const [currentSection, setCurrentSection] = useState("Home");
+  const [currentSection, setCurrentSection] = useState('Home');
+  const [sheetData, setSheetData] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const [sheetData, setSheetData] = useState([]);
-
+  // Fetch portfolio data when section changes to Portfolio
   useEffect(() => {
-    if(currentSection === "Portfolio"){
-      const fetchData = async () => {
-        const response = await fetch('/api/getNotionData');
-        const data = await response.json();
-        console.log("data=======",data)
-        setSheetData(data);
-    };
-    fetchData();
+    if (currentSection === 'Portfolio') {
+      setIsLoading(true);
+      setError(null); // Reset error state
+      fetch('/api/getNotionData')
+        .then((response) => {
+          if (!response.ok) throw new Error('Failed to fetch portfolio data');
+          return response.json();
+        })
+        .then((data) => {
+          setSheetData(data);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setIsLoading(false);
+        });
     }
   }, [currentSection]);
 
-
-  const handleClick = (section: string) => {
+  const handleSectionChange = (section: string) => {
     if (currentSection !== section) {
-      setIsFlipped((prevState) => !prevState);
-      setTimeout(() => {
-        setCurrentSection(section);
-      }, 300); // Adjust the timeout duration to match the flip animation duration
+      setIsFlipped((prev) => !prev);
+      setTimeout(() => setCurrentSection(section), 300); // Matches flip animation duration
     }
   };
 
   const handleBackClick = () => {
-    setIsFlipped((prevState) => !prevState);
-    setTimeout(() => {
-      setCurrentSection("Home");
-    }, 300); // Adjust the timeout duration to match the flip animation duration
+    setIsFlipped((prev) => !prev);
+    setTimeout(() => setCurrentSection('Home'), 300);
   };
 
-  const FrontSide = () => (
+  const SectionContent = () => (
     <Fragment>
-      <Navbar handleBackClick={handleBackClick} currentSection={currentSection} handleClick={handleClick} />
-      <div className=" h-[90vh] bg-black text-white rounded-[25px] border-[2px] border-[#7c7d81] cursor-pointer flex flex-col justify-center items-start p-6 md:p-8 space-y-4">
-        {currentSection === "Home" && <Home />}
-        {currentSection === "About Me" && (
-          <div className=" py-5 mt-[70px] mx-auto overflow-auto">
-            {/* <h2 className="text-3xl font-bold mb-8 text-center">Myself</h2> */}
-            <p className="text-sm text-center md:text-lg">
-             {`I am a versatile mobile app and web developer with expertise in
-              Android, Java, React Native, Flutter, and web technologies.
-              Skilled in creating user-friendly, high-quality applications and
-              websites, I have experience with CMS platforms and cross-platform
-              solutions. My focus is on delivering efficient, innovative digital
-              experiences tailored to client needs. Let's collaborate to bring
-              your ideas to life with seamless and engaging solutions.`}
-            </p>
-            <Skills />
+      <Navbar
+        handleBackClick={handleBackClick}
+        currentSection={currentSection}
+        handleClick={handleSectionChange}
+      />
+      <motion.div
+        className="h-[90vh] w-full bg-black text-white rounded-3xl border-2 border-gray-600 p-6 md:p-8 flex flex-col justify-center items-center relative"
+        initial={{ scale: 0.98 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        {currentSection === 'Home' && <HomeSection />}
+        {currentSection === 'About Me' && <AboutSection />}
+        {currentSection === 'Portfolio' && (
+          <div className="w-full">
+            {isLoading && <p className="text-center text-gray-400">Loading portfolio...</p>}
+            {error && <p className="text-center text-red-500">{error}</p>}
+            {!isLoading && !error && <PortfolioSection sheetData={sheetData} />}
           </div>
         )}
-        {currentSection === "Portfolio" && (
-          <>
-            {/* <h1 className="font-bold text-[20px]">Projects</h1> */}
-            <div className="flex flex-wrap mt-[70px] mb-[70px] overflow-scroll gap-2 justify-center items-center">
-              {sheetData.map((val:any, index) => (
-                <Cards playstore={val?.properties.playStore.url} appStore={val?.properties?.appStore?.url}
-                  key={index} description={val.description} imageSrc={val.properties?.imageSrc?.url} title={val.properties?.title.rich_text[0].plain_text} 
-                />
-              ))}
-            </div>
-          </>
-        )}
-         {currentSection === "Contact" && (
-          <div className="w-[100%] overflow-scroll py-[70px]" >
-           <h2 className="text-2xl text-center font-bold mb-4">Feel Free to Contact</h2>
-          <div className="mt-[70px] w-[80%] flex mb-[70px] items-center mx-auto  gap-2 justify-center">
-            <ContactForm />
-            </div>
-          </div>
-        )}
-      </div>
+        {currentSection === 'Contact' && <ContactSection />}
+        <p className="text-gray-400 text-xs absolute bottom-4">
+          © 2024 jithnkrishna.com
+        </p>
+      </motion.div>
 
-      {/* Bottom Navigation for Mobile */}
-      <div className="fixed bottom-0 left-0 right-0 bg-black border-l-2 border-r-2 border-[#7c7d81] rounded-b-[20px] text-white flex justify-around items-center py-3 md:hidden">
-        {["Home", "About Me", "Portfolio", "Contact"].map((section) => (
-          <button
+      {/* Mobile Bottom Navigation */}
+      <div className="fixed bottom-0 left-0 right-0 bg-black border-x-2 border-gray-600 rounded-b-2xl text-white flex justify-around py-3 md:hidden">
+        {['Home', 'About Me', 'Portfolio', 'Contact'].map((section) => (
+          <motion.button
             key={section}
-            className={`text-white cursor-pointer transition duration-300 ${
-              currentSection === section
-                ? "glossy-underline text-yellow-400 transform scale-110"
-                : "hover:text-yellow-300"
+            className={`text-sm font-medium transition-colors ${
+              currentSection === section ? 'text-yellow-400' : 'text-white hover:text-yellow-300'
             }`}
-            onClick={() => handleClick(section)}
+            onClick={() => handleSectionChange(section)}
+            whileTap={{ scale: 0.95 }}
           >
             {section}
-          </button>
-        ))}
-      </div>
-    </Fragment>
-  );
-
-  const BackSide = () => (
-    <Fragment>
-      <Navbar handleBackClick={handleBackClick} currentSection={currentSection} handleClick={handleClick} />
-      <div className=" h-[90vh] bg-black text-white rounded-[25px] border-[2px] border-[#7c7d81] cursor-pointer flex flex-col justify-center items-start p-6 md:p-8 space-y-4">
-        {currentSection === "Home" && <Home />}
-        {currentSection === "About Me" && (
-          <div className=" py-5 mt-[70px] mx-auto overflow-scroll">
-            {/* <h2 className="text-3xl font-bold mb-8 text-center">Myself</h2> */}
-            <p className="text-sm text-center md:text-lg">
-            {`I am a versatile mobile app and web developer with expertise in
-              Android, Java, React Native, Flutter, and web technologies.
-              Skilled in creating user-friendly, high-quality applications and
-              websites, I have experience with CMS platforms and cross-platform
-              solutions. My focus is on delivering efficient, innovative digital
-              experiences tailored to client needs. Let's collaborate to bring
-              your ideas to life with seamless and engaging solutions.`}
-            </p>
-            <Skills />
-          </div>
-        )}
-        {currentSection === "Portfolio" && (
-          <>
-            {/* <h1 className="font-bold text-[20px]">Projects</h1> */}
-            <div className="flex flex-wrap mt-[70px] mb-[70px] overflow-scroll gap-2 justify-center items-center">
-              {sheetData.map((val:any, index) => (
-                <Cards playstore={val?.properties.playStore.url} appStore={val?.properties?.appStore?.url}
-                  key={index} description={val.description} imageSrc={val.properties?.imageSrc?.url} title={val.properties?.title.rich_text[0].plain_text} 
-                />
-              ))}
-            </div>
-          </>
-        )}
-      {currentSection === "Contact" && (
-          <div className="w-[100%] overflow-scroll py-[70px] " >
-           <h2 className="text-2xl text-center font-bold mb-4">Feel Free to Contact</h2>
-          <div className="mt-[70px] w-[80%] flex mb-[70px] items-center mx-auto  gap-2 justify-center">
-            <ContactForm />
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Bottom Navigation for Mobile */}
-      <div className="fixed bottom-0 left-0 right-0 bg-black border-l-2 border-r-2 border-[#7c7d81] rounded-b-[20px] text-white flex justify-around items-center py-3 md:hidden">
-        {["Home", "About Me", "Portfolio", "Contact"].map((section) => (
-          <button
-            key={section}
-            className={`text-white cursor-pointer transition duration-300 ${
-              currentSection === section
-                ? "glossy-underline text-yellow-400 transform scale-110"
-                : "hover:text-yellow-300"
-            }`}
-            onClick={() => handleClick(section)}
-          >
-            {section}
-          </button>
+          </motion.button>
         ))}
       </div>
     </Fragment>
   );
 
   return (
+    <div className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative blob-container bg-black/10 backdrop-blur-md">
     <ReactCardFlip
-    containerClassName="w-full"
+      containerClassName="w-full max-w-4xl mx-auto"
       isFlipped={isFlipped}
       flipDirection="horizontal"
     >
-      {/* Front Side */}
-      <FrontSide />
-
-      {/* Back Side */}
-      <BackSide />
+      <SectionContent />
+      <SectionContent />
     </ReactCardFlip>
+    <div className="blob-background" />
+    </div>
   );
 };
 
