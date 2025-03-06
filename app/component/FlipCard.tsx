@@ -27,7 +27,7 @@ const HomeSection = () => (
       <AnimatedTextCharacter fontSize="3rem" text="Welcome." />
     </h1>
     <p className="text-sm md:text-lg max-w-2xl">
-      Hi, I'm Jithin Krishna, a Senior Software Developer based in Kochi. With expertise in Java, React Native, and Flutter, I craft innovative mobile and web solutions that drive success and delight users.
+      {"Hi, I'm Jithin Krishna, a Senior Software Developer based in Kochi. With expertise in Java, React Native, and Flutter, I craft innovative mobile and web solutions that drive success and delight users."}
     </p>
   </motion.div>
 );
@@ -40,7 +40,7 @@ const AboutSection = () => (
     className="py-5 overflow-auto h-[70vh] text-center space-y-6"
   >
     <p className="text-sm md:text-lg max-w-2xl mx-auto">
-      I'm a versatile developer skilled in Android, Java, React Native, Flutter, and web technologies. I focus on creating seamless, user-friendly digital experiences tailored to client needs.
+     {" I'm a versatile developer skilled in Android, Java, React Native, Flutter, and web technologies. I focus on creating seamless, user-friendly digital experiences tailored to client needs."}
     </p>
     <Skills />
   </motion.div>
