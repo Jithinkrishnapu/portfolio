@@ -9,7 +9,7 @@
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(to right, #ffdd00, #ffaa00);
+    background: linear-gradient(to right, #ad77e0 , #9333EA);
     border-radius: 2px;
     opacity: 0.8;
     animation: glossy-animation 1s linear infinite;

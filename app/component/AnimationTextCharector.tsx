@@ -8,7 +8,7 @@ interface Props{
 }
 
 
-const AnimatedTextCharacter: FC<Props> = ({ text, fontSize }) => {
+function AnimatedTextCharacter({ text, fontSize }: Props) {
 // splitting text into letters
   const letters = Array.from(text);
 
@@ -59,6 +59,6 @@ const AnimatedTextCharacter: FC<Props> = ({ text, fontSize }) => {
       ))}
     </motion.div>
   );
-};
+}
 
 export default AnimatedTextCharacter;
