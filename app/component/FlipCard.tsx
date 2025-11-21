@@ -7,6 +7,7 @@ import ContactForm from '../pages/ContactForm';
 import Cards from './Card';
 import AnimatedTextCharacter from './AnimationTextCharector';
 import Navbar from './NavBar';
+import FloatingAIButton from './FloatingAIButton';
 
 // Define FlipCard props interface
 interface FlipCardProps {
@@ -181,6 +182,9 @@ const FlipCard: React.FC<FlipCardProps> = () => {
       <SectionContent />
       <SectionContent />
     </ReactCardFlip>
+   
+    <FloatingAIButton />
+
     <div className="blob-background" />
     </div>
   );
