@@ -14,17 +14,17 @@ const ventures = [
     icon: faRocket,
     gradient: 'from-accent/20 to-accent-dark/20',
     description:
-      'Co-Founder of Codenzic Innovations, a software solutions company focused on building scalable CRM systems, business automation tools, and custom web applications for SMEs across India and the Middle East. I lead product architecture, client strategy, and technology direction.',
+      'Leading product strategy, architecture decisions, and business growth at Codenzic Innovations. Building scalable CRM systems, business automation platforms, and enterprise software solutions for clients across India and the Middle East.',
     logo: '/codenzic.jpg',
   },
   {
-    title: 'Founding Member',
+    title: 'Former Founding Member',
     company: 'Mykare Health',
     year: '2021 – 2025',
     icon: faBuilding,
     gradient: 'from-purple-600/20 to-pink-600/20',
     description:
-      'Part of the founding team at Mykare Health, contributing to early product strategy, system design, and operational setup during the company\'s initial growth phase.',
+      'Contributed to early-stage product development, system architecture, and operational infrastructure during the company\'s foundational growth phase in the healthcare technology space.',
     logo: '/mykare.png',
   },
 ]

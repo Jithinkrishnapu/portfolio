@@ -4,16 +4,15 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faCartShopping, faCircleCheck } from '@fortawesome/free-solid-svg-icons'
-import { faReact, faNodeJs, faJs, faJava, faDocker, faAws, faFigma } from '@fortawesome/free-brands-svg-icons'
+import { faReact, faNodeJs, faJava, faDocker, faAws } from '@fortawesome/free-brands-svg-icons'
 
+// System-level capabilities (ordered by strategic importance)
 const techStack = [
-  { name: 'React', icon: faReact },
-  { name: 'Node.js', icon: faNodeJs },
-  { name: 'JavaScript', icon: faJs },
-  { name: 'Java', icon: faJava },
-  { name: 'Docker', icon: faDocker },
   { name: 'AWS', icon: faAws },
-  { name: 'Figma', icon: faFigma },
+  { name: 'Docker', icon: faDocker },
+  { name: 'Java', icon: faJava },
+  { name: 'Node.js', icon: faNodeJs },
+  { name: 'React', icon: faReact },
 ]
 
 export default function Hero() {
@@ -60,8 +59,8 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="absolute left-0 top-16 md:top-24 z-10"
           >
-            <p className="text-accent text-xl md:text-2xl font-medium mb-1">Software Developer</p>
-            <p className="text-[#888] text-xl md:text-2xl">& Mobile Expert</p>
+            <p className="text-accent text-lg md:text-2xl font-medium mb-1">Tech Founder</p>
+            <p className="text-[#888] text-lg md:text-2xl">Co-Founder of Codenzic Innovations</p>
           </motion.div>
 
           {/* Right Description */}
@@ -72,7 +71,7 @@ export default function Hero() {
             className="absolute right-0 top-16 md:top-24 z-10 max-w-[200px] md:max-w-[250px] text-right"
           >
             <p className="text-[#BFBFBF] text-xs md:text-sm leading-relaxed">
-              Hi, I&apos;m Jithin, a software developer passionate about crafting innovative mobile and web solutions that drive success and delight users.
+              Tech Founder focused on building scalable SaaS products and business automation platforms for modern enterprises.
             </p>
           </motion.div>
 
@@ -122,25 +121,28 @@ export default function Hero() {
           </h1>
         </motion.div>
 
-        {/* Tech Stack */}
+        {/* Technical Background */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex justify-center gap-6 md:gap-10 flex-wrap mb-16 relative z-10"
+          className="mb-16 relative z-10"
         >
-          {techStack.map((tech, i) => (
-            <motion.div
-              key={tech.name}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 + i * 0.1 }}
-              className="flex items-center gap-2 text-[#666] hover:text-accent transition-colors cursor-default"
-            >
-              <FontAwesomeIcon icon={tech.icon} className="w-5 h-5" />
-              <span className="text-sm font-medium">{tech.name}</span>
-            </motion.div>
-          ))}
+          <p className="text-center text-[#555] text-xs uppercase tracking-widest mb-4">Technical Background</p>
+          <div className="flex justify-center gap-6 md:gap-8 flex-wrap opacity-60">
+            {techStack.map((tech, i) => (
+              <motion.div
+                key={tech.name}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 + i * 0.1 }}
+                className="flex items-center gap-2 text-[#666] hover:text-[#888] transition-colors cursor-default"
+              >
+                <FontAwesomeIcon icon={tech.icon} className="w-4 h-4" />
+                <span className="text-xs font-medium">{tech.name}</span>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         {/* Divider */}
@@ -154,25 +156,26 @@ export default function Hero() {
           className="text-center max-w-4xl mx-auto mb-8"
         >
           <h2 className="text-2xl md:text-4xl font-semibold mb-4 leading-tight">
-            Crafting incredible, impactful,{' '}
-            <span className="text-accent">innovative apps</span>,
+            Building scalable{' '}
+            <span className="text-accent">SaaS products</span>{' '}
+            and
             <br />
-            web solutions and many more...
+            business automation platforms
           </h2>
           <p className="text-[#888] text-sm max-w-2xl mx-auto">
-            Development is not just about code. It&apos;s a way of solving problems, creating experiences, and building products that make a difference. Crafting scalable solutions is what I do best.
+            I architect and scale enterprise grade SaaS platforms translating product vision into resilient systems that deliver measurable business outcomes.
           </p>
         </motion.div>
 
-        {/* Tools */}
+        {/* Additional Tools */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1 }}
-          className="flex justify-center gap-8 flex-wrap opacity-40"
+          className="flex justify-center gap-6 flex-wrap opacity-30"
         >
-          {['Firebase', 'Redux', 'MongoDB', 'PostgreSQL', 'Flutter', 'Spring'].map((tool) => (
-            <span key={tool} className="text-xs text-[#666] font-medium uppercase tracking-wider">
+          {['PostgreSQL', 'MongoDB', 'Spring', 'Flutter'].map((tool) => (
+            <span key={tool} className="text-[10px] text-[#555] font-medium uppercase tracking-wider">
               {tool}
             </span>
           ))}
