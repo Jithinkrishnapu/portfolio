@@ -7,38 +7,38 @@ import { faMobileScreen, faGlobe, faServer, faPalette, faPlug, faLightbulb, faCh
 
 const services = [
   {
-    title: 'Mobile App Development',
-    subtitle: 'React Native & Flutter',
-    icon: faMobileScreen,
-    gradient: 'from-blue-600/20 to-cyan-600/20',
-  },
-  {
-    title: 'Web Development',
-    subtitle: 'Next.js & React',
-    icon: faGlobe,
-    gradient: 'from-purple-600/20 to-pink-600/20',
-  },
-  {
-    title: 'Backend Development',
-    subtitle: 'Node.js & Spring',
+    title: 'System Architecture',
+    subtitle: 'Scalable Infrastructure',
     icon: faServer,
     gradient: 'from-green-600/20 to-emerald-600/20',
   },
   {
-    title: 'UI/UX Design',
-    subtitle: 'Figma & Prototyping',
-    icon: faPalette,
-    gradient: 'from-orange-600/20 to-red-600/20',
+    title: 'Product Development',
+    subtitle: 'SaaS & Enterprise',
+    icon: faGlobe,
+    gradient: 'from-purple-600/20 to-pink-600/20',
   },
   {
-    title: 'API Development',
-    subtitle: 'REST & GraphQL',
+    title: 'Mobile Platforms',
+    subtitle: 'Cross-Platform Solutions',
+    icon: faMobileScreen,
+    gradient: 'from-blue-600/20 to-cyan-600/20',
+  },
+  {
+    title: 'API & Integration',
+    subtitle: 'Enterprise Systems',
     icon: faPlug,
     gradient: 'from-indigo-600/20 to-violet-600/20',
   },
   {
-    title: 'Consulting',
-    subtitle: 'Tech Strategy',
+    title: 'Product Design',
+    subtitle: 'User-Centered Approach',
+    icon: faPalette,
+    gradient: 'from-orange-600/20 to-red-600/20',
+  },
+  {
+    title: 'Tech Strategy',
+    subtitle: 'Business Alignment',
     icon: faLightbulb,
     gradient: 'from-yellow-600/20 to-amber-600/20',
   },
@@ -63,7 +63,7 @@ export default function Services() {
         >
           <div className="flex items-center gap-3 mb-2">
             <div className="w-1 h-6 bg-accent rounded-full" />
-            <h2 className="text-2xl md:text-3xl font-semibold">what I do</h2>
+            <h2 className="text-2xl md:text-3xl font-semibold">technical background</h2>
           </div>
         </motion.div>
 

@@ -128,7 +128,7 @@ export default function Work() {
         >
           <div className="flex items-center gap-3 mb-2">
             <div className="w-1 h-6 bg-accent rounded-full" />
-            <h2 className="text-2xl md:text-3xl font-semibold">my work</h2>
+            <h2 className="text-2xl md:text-3xl font-semibold">products & projects</h2>
           </div>
         </motion.div>
 
