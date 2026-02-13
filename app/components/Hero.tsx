@@ -50,27 +50,42 @@ export default function Hero() {
 
       {/* Main Hero Content */}
       <div className="max-w-6xl mx-auto relative">
+        {/* Mobile: Stacked layout */}
+        <div className="md:hidden text-center mb-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <p className="text-accent text-lg font-medium mb-1">Tech Founder</p>
+            <p className="text-[#888] text-base mb-3">Co-Founder of Codenzic Innovations</p>
+            <p className="text-[#BFBFBF] text-xs leading-relaxed max-w-[280px] mx-auto">
+              Building scalable SaaS products and business automation platforms for modern enterprises.
+            </p>
+          </motion.div>
+        </div>
+
         {/* Hero Section with Overlapping Name */}
-        <div className="relative min-h-[500px] md:min-h-[550px] mb-8">
-          {/* Left Title */}
+        <div className="relative min-h-[350px] md:min-h-[550px] mb-8">
+          {/* Left Title - Desktop only */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="absolute left-0 top-16 md:top-24 z-10"
+            className="hidden md:block absolute left-0 top-24 z-10"
           >
-            <p className="text-accent text-lg md:text-2xl font-medium mb-1">Tech Founder</p>
-            <p className="text-[#888] text-lg md:text-2xl">Co-Founder of Codenzic Innovations</p>
+            <p className="text-accent text-2xl font-medium mb-1">Tech Founder</p>
+            <p className="text-[#888] text-2xl">Co-Founder of Codenzic Innovations</p>
           </motion.div>
 
-          {/* Right Description */}
+          {/* Right Description - Desktop only */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="absolute right-0 top-16 md:top-24 z-10 max-w-[200px] md:max-w-[250px] text-right"
+            className="hidden md:block absolute right-0 top-24 z-10 max-w-[250px] text-right"
           >
-            <p className="text-[#BFBFBF] text-xs md:text-sm leading-relaxed">
+            <p className="text-[#BFBFBF] text-sm leading-relaxed">
               Tech Founder focused on building scalable SaaS products and business automation platforms for modern enterprises.
             </p>
           </motion.div>
@@ -85,10 +100,10 @@ export default function Hero() {
               className="relative"
             >
               {/* Glow effect */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-accent/20 rounded-full blur-[100px]" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] md:w-[400px] md:h-[400px] bg-accent/20 rounded-full blur-[100px]" />
               
               {/* Avatar with dark blend at bottom */}
-              <div className="relative w-[280px] h-[320px] md:w-[350px] md:h-[400px]">
+              <div className="relative w-[220px] h-[260px] md:w-[350px] md:h-[400px]">
                 <Image
                   src="/avatar_il.png"
                   alt="Jithin Krishna"
@@ -111,12 +126,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center -mt-24 md:-mt-32 relative z-10"
+          className="text-center -mt-16 md:-mt-32 relative z-10"
         >
           <span className="text-[#555] text-xs md:text-sm font-normal tracking-[0.4em] block mb-1">
             JITHIN
           </span>
-          <h1 className="text-7xl md:text-[120px] lg:text-[150px] font-bold tracking-tight leading-none">
+          <h1 className="text-6xl md:text-[120px] lg:text-[150px] font-bold tracking-tight leading-none">
             <span className="text-gradient">Krishna</span>
           </h1>
         </motion.div>
