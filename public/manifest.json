@@ -1,0 +1,21 @@
+{
+  "name": "Jithin Krishna - Freelance Developer",
+  "short_name": "Jithin Krishna",
+  "description": "Senior Freelance Software Developer - React Native, Flutter, Next.js Expert",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/avatar.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/avatar.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
