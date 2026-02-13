@@ -3,9 +3,10 @@
 import dynamic from 'next/dynamic'
 import Hero from './Hero'
 import Services from './Services'
+import Leadership from './Leadership'
 import Work from './Work'
 import Contact from './Contact'
-import AskAI from './AskAI'
+// import AskAI from './AskAI'
 
 const Scene3D = dynamic(() => import('./Scene3D'), {
   ssr: false,
@@ -18,9 +19,10 @@ export default function ClientPage() {
       <Scene3D />
       <Hero />
       <Services />
+      <Leadership />
       <Work />
       <Contact />
-      <AskAI />
+      {/* <AskAI /> */}
     </main>
   )
 }
