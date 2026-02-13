@@ -12,6 +12,7 @@ const Scene3D = dynamic(() => import('./components/Scene3D'), {
   loading: () => <div className="fixed inset-0 bg-black -z-10" />,
 })
 
+export const revalidate = 100
 export default function Home() {
   return (
     <main className="relative">

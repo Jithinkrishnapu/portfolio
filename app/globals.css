@@ -106,6 +106,94 @@ body {
   .bg-card {
     background: var(--bg-card);
   }
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Blob gradient styles */
+.blob-container {
+  @apply relative isolate;
+}
+
+.blob-background {
+  @apply absolute top-1/2 left-1/2 w-[80vw] h-[80vh] -translate-x-1/2 -translate-y-1/2;
+  background: radial-gradient(
+    circle at center,
+    rgba(147, 51, 234, 0.3) 0%, /* Slightly more opaque for visibility */
+    rgba(79, 70, 229, 0.25) 30%,
+    rgba(17, 24, 39, 0) 70%
+  );
+  filter: blur(60px);
+  border-radius: 50% 30% 40% 60% / 60% 40% 30% 50%;
+  animation: blobAnimation 15s infinite ease-in-out;
+  @apply z-0 pointer-events-none;
+}
+
+/* Animation for blob movement */
+@keyframes blobAnimation {
+  0% {
+    border-radius: 50% 30% 40% 60% / 60% 40% 30% 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    border-radius: 40% 60% 30% 50% / 50% 30% 60% 40%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  50% {
+    border-radius: 60% 40% 50% 30% / 30% 60% 40% 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  75% {
+    border-radius: 30% 50% 60% 40% / 40% 50% 30% 60%;
+    transform: translate(-50%, -50%) rotate(270deg);
+  }
+  100% {
+    border-radius: 50% 30% 40% 60% / 60% 40% 30% 50%;
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Notice bounce + glow */
+@keyframes notice-bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  20% { transform: translateY(-6px) scale(1.05); }
+}
+
+@keyframes notice-glow {
+  0%, 100% { box-shadow: 0 0 12px rgba(147, 51, 234, 0.35); }
+  50% { box-shadow: 0 0 22px rgba(147, 51, 234, 0.6); }
+}
+
+/* Sparkle float */
+@keyframes sparkle {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.25); }
+}
+
+.ai-btn {
+  animation: notice-bounce 6s ease-in-out infinite,
+             notice-glow 6s ease-in-out infinite;
+             border-radius: 50px;
+}
+
+.ai-btn-inner {
+  background: white;
+  border: 2px solid #9333EA;
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-weight: 600;
+  color: #9333EA;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 4px 14px rgba(147, 51, 234, 0.35);
+  user-select: none;
+}
+
+.sparkle-icon {
+  animation: sparkle 1.4s infinite ease-in-out;
+  display: inline-block;
 }
 
 .cursor-glow {

@@ -1,7 +1,10 @@
 import { NextResponse } from 'next/server';
 import { Client } from '@notionhq/client';
+import { revalidatePath } from 'next/cache';
 
 export const revalidate = 100;
+
+export const revalidate = 100
 
 export async function GET() {
   try {
