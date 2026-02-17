@@ -108,10 +108,10 @@ export default function Hero() {
                   src="/avatar_il.png"
                   alt="Jithin Krishna"
                   fill
-                  className="object-contain object-bottom"
+                  className="object-contain object-bottom contrast-110 brightness-105"
                   style={{
-                    maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+                    maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
                   }}
                   priority
                 />
@@ -128,7 +128,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center -mt-16 md:-mt-32 relative z-10"
         >
-          <span className="text-[#555] text-xs md:text-sm font-normal tracking-[0.4em] block mb-1">
+          <span className="text-white text-sm md:text-base font-semibold tracking-[0.4em] block mb-1">
             JITHIN
           </span>
           <h1 className="text-6xl md:text-[120px] lg:text-[150px] font-bold tracking-tight leading-none">
