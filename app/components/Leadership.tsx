@@ -12,7 +12,8 @@ const ventures = [
     company: 'Codenzic Innovations',
     year: '2026',
     icon: faRocket,
-    gradient: 'from-accent/20 to-accent-dark/20',
+    hoverColor: 'hover:bg-blue-500/10 hover:border-blue-500/30',
+    iconHover: 'group-hover:bg-blue-500/20 group-hover:border-blue-500/30',
     description:
       'Leading product strategy, architecture decisions, and business growth at Codenzic Innovations. Building scalable CRM systems, business automation platforms, and enterprise software solutions for clients across India and the Middle East.',
     logo: '/codenzic.jpg',
@@ -22,7 +23,8 @@ const ventures = [
     company: 'Mykare Health',
     year: '2021 – 2025',
     icon: faBuilding,
-    gradient: 'from-purple-600/20 to-pink-600/20',
+    hoverColor: 'hover:bg-teal-500/10 hover:border-teal-500/30',
+    iconHover: 'group-hover:bg-teal-500/20 group-hover:border-teal-500/30',
     description:
       'Contributed to early-stage product development, system architecture, and operational infrastructure during the company\'s foundational growth phase in the healthcare technology space.',
     logo: '/mykare.png',
@@ -62,11 +64,11 @@ export default function Leadership() {
               className="group"
             >
               <div
-                className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${venture.gradient} border border-[#222] p-4 md:p-6 hover:border-accent/50 transition-all duration-300 h-full`}
+                className={`relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-4 md:p-6 ${venture.hoverColor} transition-all duration-300 h-full`}
               >
                 <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4">
                   {/* Icon or Logo */}
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-[#111] border border-[#333] flex items-center justify-center text-accent shrink-0 overflow-hidden">
+                  <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center text-accent shrink-0 overflow-hidden ${venture.iconHover} transition-all duration-300`}>
                     {venture.logo ? (
                       <Image
                         src={venture.logo}

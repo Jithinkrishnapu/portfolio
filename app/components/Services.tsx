@@ -10,37 +10,31 @@ const services = [
     title: 'System Architecture',
     subtitle: 'Scalable Infrastructure',
     icon: faServer,
-    gradient: 'from-green-600/20 to-emerald-600/20',
   },
   {
     title: 'Product Development',
     subtitle: 'SaaS & Enterprise',
     icon: faGlobe,
-    gradient: 'from-purple-600/20 to-pink-600/20',
   },
   {
     title: 'Mobile Platforms',
     subtitle: 'Cross-Platform Solutions',
     icon: faMobileScreen,
-    gradient: 'from-blue-600/20 to-cyan-600/20',
   },
   {
     title: 'API & Integration',
     subtitle: 'Enterprise Systems',
     icon: faPlug,
-    gradient: 'from-indigo-600/20 to-violet-600/20',
   },
   {
     title: 'Product Design',
     subtitle: 'User-Centered Approach',
     icon: faPalette,
-    gradient: 'from-orange-600/20 to-red-600/20',
   },
   {
     title: 'Tech Strategy',
     subtitle: 'Business Alignment',
     icon: faLightbulb,
-    gradient: 'from-yellow-600/20 to-amber-600/20',
   },
 ]
 
@@ -76,10 +70,10 @@ export default function Services() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group"
             >
-              <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${service.gradient} border border-[#222] p-4 hover:border-accent/50 transition-all duration-300`}>
+              <div className="relative overflow-hidden rounded-2xl bg-[#111] border border-[#222] p-4 hover:border-accent/50 transition-all duration-300">
                 <div className="flex items-center gap-4">
                   {/* Icon */}
-                  <div className="w-16 h-16 rounded-xl bg-[#111] border border-[#333] flex items-center justify-center text-accent">
+                  <div className="w-16 h-16 rounded-xl bg-accent/10 border border-accent/30 flex items-center justify-center text-accent">
                     <FontAwesomeIcon icon={service.icon} className="w-6 h-6" />
                   </div>
                   
