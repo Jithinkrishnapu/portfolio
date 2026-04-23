@@ -103,12 +103,12 @@ export default function Hero() {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] md:w-[400px] md:h-[400px] bg-accent/20 rounded-full blur-[100px]" />
               
               {/* Avatar with dark blend at bottom */}
-              <div className="relative w-[220px] h-[260px] md:w-[350px] md:h-[400px]">
+              <div className="relative w-[220px] h-[220px] md:w-[350px] md:h-[350px] rounded-full border-2 border-white/20">
                 <Image
-                  src="/avatar_il.png"
+                  src="/avatar.png"
                   alt="Jithin Krishna"
                   fill
-                  className="object-contain object-bottom contrast-110 brightness-105"
+                  className="object-cover contrast-110 brightness-105 rounded-full"
                   style={{
                     maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
                     WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
