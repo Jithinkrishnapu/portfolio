@@ -35,13 +35,13 @@ export const metadata: Metadata = {
     siteName: 'Jithin Krishna - Tech Founder',
     title: 'Jithin Krishna | Tech Founder & Co-Founder at Codenzic Innovations',
     description: 'Tech founder building scalable SaaS and business automation systems. Co-Founder of Codenzic Innovations.',
-    images: [{ url: '/avatar.png', width: 800, height: 800, alt: 'Jithin Krishna' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Jithin Krishna Portfolio' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Jithin Krishna | Tech Founder & Co-Founder at Codenzic Innovations',
     description: 'Tech founder building scalable SaaS and business automation systems.',
-    images: ['/avatar.png'],
+    images: ['/og-image.png'],
   },
   robots: { index: true, follow: true },
 }
