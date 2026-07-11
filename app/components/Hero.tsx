@@ -2,199 +2,100 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye, faCartShopping, faCircleCheck } from '@fortawesome/free-solid-svg-icons'
-import { faReact, faNodeJs, faJava, faDocker, faAws } from '@fortawesome/free-brands-svg-icons'
-
-// System-level capabilities (ordered by strategic importance)
-const techStack = [
-  { name: 'AWS', icon: faAws },
-  { name: 'Docker', icon: faDocker },
-  { name: 'Java', icon: faJava },
-  { name: 'Node.js', icon: faNodeJs },
-  { name: 'React', icon: faReact },
-]
 
 export default function Hero() {
   return (
-    <section className="min-h-screen px-6 pt-8 pb-16 overflow-hidden">
-      {/* Top Navigation */}
-      <motion.nav
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="flex justify-center gap-4 mb-8 flex-wrap relative z-20"
-      >
-        <a
-          href="#work"
-          className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-accent/50 bg-accent/10 text-accent text-sm font-medium hover:bg-accent/20 transition-colors"
-        >
-          <FontAwesomeIcon icon={faEye} className="w-4 h-4" />
-          See my work
-        </a>
-        <a
-          href="#services"
-          className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#333] bg-[#111] text-white text-sm font-medium hover:border-[#444] transition-colors"
-        >
-          <FontAwesomeIcon icon={faCartShopping} className="w-4 h-4" />
-          My services
-        </a>
-        <a
-          href="#contact"
-          className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-accent/50 bg-accent/10 text-accent text-sm font-medium hover:bg-accent/20 transition-colors"
-        >
-          <FontAwesomeIcon icon={faCircleCheck} className="w-4 h-4" />
-          Book a service
-        </a>
-      </motion.nav>
+    <section className="relative pt-12 md:pt-24 pb-20 overflow-hidden">
+      {/* Background Dots Pattern overlay */}
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
+        <div 
+          className="absolute top-0 left-0 w-full h-full" 
+          style={{ 
+            backgroundImage: 'radial-gradient(circle at 2px 2px, #a9fc03 1px, transparent 0)', 
+            backgroundSize: '40px 40px' 
+          }} 
+        />
+      </div>
 
-      {/* Main Hero Content */}
-      <div className="max-w-6xl mx-auto relative">
-        {/* Mobile: Stacked layout */}
-        <div className="md:hidden text-center mb-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <p className="text-accent text-lg font-medium mb-1">Tech Founder</p>
-            <p className="text-[#888] text-base mb-3">Co-Founder of Codenzic Innovations</p>
-            <p className="text-[#BFBFBF] text-xs leading-relaxed max-w-[280px] mx-auto">
-              Building scalable SaaS products and business automation platforms for modern enterprises.
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Hero Section with Overlapping Name */}
-        <div className="relative min-h-[350px] md:min-h-[550px] mb-8">
-          {/* Left Title - Desktop only */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="hidden md:block absolute left-0 top-24 z-10"
-          >
-            <p className="text-accent text-2xl font-medium mb-1">Tech Founder</p>
-            <p className="text-[#888] text-2xl">Co-Founder of Codenzic Innovations</p>
-          </motion.div>
-
-          {/* Right Description - Desktop only */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="hidden md:block absolute right-0 top-24 z-10 max-w-[250px] text-right"
-          >
-            <p className="text-[#BFBFBF] text-sm leading-relaxed">
-              Tech Founder focused on building scalable SaaS products and business automation platforms for modern enterprises.
-            </p>
-          </motion.div>
-
-          {/* Center - Avatar with Name Overlay */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center">
-            {/* Illustrator Avatar */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative"
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-16">
+          
+          {/* Left Text Block */}
+          <div className="w-full lg:w-3/5 text-left">
+            <motion.span 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-block px-4 py-1.5 mb-6 bg-white/5 border border-white/10 rounded-full text-xs font-bold tracking-widest text-[#a9fc03] uppercase"
             >
-              {/* Glow effect */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] md:w-[400px] md:h-[400px] bg-accent/20 rounded-full blur-[100px]" />
+              Founder & CSO
+            </motion.span>
+            
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-tight tracking-tight"
+            >
+              Building Growth Through <span className="text-[#a9fc03]">Technology</span>
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg md:text-xl text-[#c1caad] mb-10 max-w-xl leading-relaxed font-light"
+            >
+              I am Jithin Krishna, Co-Founder & Chief Strategy Officer at Codenzic Innovations. I help businesses transform operations through enterprise software, automation, AI solutions, and scalable digital strategies.
+            </motion.p>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-wrap gap-4"
+            >
+              <a
+                href="#contact"
+                className="bg-[#a9fc03] text-black font-semibold px-8 py-4 rounded-lg hover:scale-105 transition-transform duration-200"
+              >
+                Partner With Me
+              </a>
+              <a
+                href="#codenzic"
+                className="border border-white/20 text-white font-semibold px-8 py-4 rounded-lg hover:bg-white/5 transition-colors duration-200"
+              >
+                Explore Codenzic
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Right Image Block */}
+          <div className="w-full lg:w-2/5 flex justify-center">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative w-full max-w-[360px] group aspect-[3/4]"
+            >
+              {/* Glow Behind Image */}
+              <div className="absolute -inset-1 bg-[#a9fc03]/20 blur-xl group-hover:bg-[#a9fc03]/30 transition-all duration-1000 rounded-2xl" />
               
-              {/* Avatar with dark blend at bottom */}
-              <div className="relative w-[220px] h-[220px] md:w-[350px] md:h-[350px] rounded-full border-2 border-white/20">
+              {/* Glass Card Container */}
+              <div className="relative w-full h-full glass-card rounded-2xl overflow-hidden border border-white/10">
                 <Image
-                  src="/avatar.png"
-                  alt="Jithin Krishna"
+                  alt="Jithin Krishna - Founder & CSO"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf1PGTYLzD0-16hfgcHp3zWIBAYhfrenuXcRGs5y12G3Ce6L76RN8cG94pWKGwHD3b5O_XxFvfgEwjMLkzrIIjrKmLFtqkLNceXjPfTSwV1dpFlsopMouBE_L8Qwj3kzrVnMExVL3qozpUQmhqXbThGKH4-rXdI1X_sMZzK8zTgobBtMK66R1q_IpA-MkcBSCeIrlNG4Hwo5krGQYkfPvf3o441amRkU2lXWEXesQnNfKyejdEtqpa6EZvPEpfFLjp8SAm8xXY2N4"
                   fill
-                  className="object-cover contrast-110 brightness-105 rounded-full"
-                  style={{
-                    maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
-                  }}
                   priority
+                  unoptimized
                 />
               </div>
             </motion.div>
-
           </div>
+
         </div>
-
-        {/* Name - Centered below avatar, overlapping */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center -mt-16 md:-mt-32 relative z-10"
-        >
-          <span className="text-white text-sm md:text-base font-semibold tracking-[0.4em] block mb-1">
-            JITHIN
-          </span>
-          <h1 className="text-6xl md:text-[120px] lg:text-[150px] font-bold tracking-tight leading-none">
-            <span className="text-gradient">Krishna</span>
-          </h1>
-        </motion.div>
-
-        {/* Technical Background */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mb-16 relative z-10"
-        >
-          <p className="text-center text-[#555] text-xs uppercase tracking-widest mb-4">Technical Background</p>
-          <div className="flex justify-center gap-6 md:gap-8 flex-wrap opacity-60">
-            {techStack.map((tech, i) => (
-              <motion.div
-                key={tech.name}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 + i * 0.1 }}
-                className="flex items-center gap-2 text-[#666] hover:text-[#888] transition-colors cursor-default"
-              >
-                <FontAwesomeIcon icon={tech.icon} className="w-4 h-4" />
-                <span className="text-xs font-medium">{tech.name}</span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Divider */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-[#333] to-transparent mb-12" />
-
-        {/* Tagline */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center max-w-4xl mx-auto mb-8"
-        >
-          <h2 className="text-2xl md:text-4xl font-semibold mb-4 leading-tight">
-            Building scalable{' '}
-            <span className="text-accent">SaaS products</span>{' '}
-            and
-            <br />
-            business automation platforms
-          </h2>
-          <p className="text-[#888] text-sm max-w-2xl mx-auto">
-            I architect and scale enterprise grade SaaS platforms translating product vision into resilient systems that deliver measurable business outcomes.
-          </p>
-        </motion.div>
-
-        {/* Additional Tools */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1 }}
-          className="flex justify-center gap-6 flex-wrap opacity-30"
-        >
-          {['PostgreSQL', 'MongoDB', 'Spring', 'Flutter'].map((tool) => (
-            <span key={tool} className="text-[10px] text-[#555] font-medium uppercase tracking-wider">
-              {tool}
-            </span>
-          ))}
-        </motion.div>
       </div>
     </section>
   )

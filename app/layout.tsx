@@ -55,7 +55,7 @@ const jsonLd = {
   jobTitle: 'Tech Founder',
   worksFor: { '@type': 'Organization', name: 'Codenzic Innovations' },
   alumniOf: { '@type': 'Organization', name: 'Mykare Health' },
-  email: 'jithin1998official@gmail.com',
+  email: 'jithin@codenzic.com',
   telephone: '+919048512163',
   address: { '@type': 'PostalAddress', addressLocality: 'Kochi', addressRegion: 'Kerala', addressCountry: 'India' },
   sameAs: ['https://github.com/Jithinkrishnapu', 'https://www.linkedin.com/in/jithin-krishna-078680177/'],

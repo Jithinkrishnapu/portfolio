@@ -2,102 +2,105 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRocket, faBuilding } from '@fortawesome/free-solid-svg-icons'
-import Image from 'next/image'
 
-const ventures = [
-  {
-    title: 'Co-Founder',
-    company: 'Codenzic Innovations',
-    year: '2026',
-    icon: faRocket,
-    hoverColor: 'hover:bg-blue-500/10 hover:border-blue-500/30',
-    iconHover: 'group-hover:bg-blue-500/20 group-hover:border-blue-500/30',
-    description:
-      'Leading product strategy, architecture decisions, and business growth at Codenzic Innovations. Building scalable CRM systems, business automation platforms, and enterprise software solutions for clients across India and the Middle East.',
-    logo: '/codenzic.jpg',
-  },
-  {
-    title: 'Former Founding Member',
-    company: 'Mykare Health',
-    year: '2021 – 2025',
-    icon: faBuilding,
-    hoverColor: 'hover:bg-teal-500/10 hover:border-teal-500/30',
-    iconHover: 'group-hover:bg-teal-500/20 group-hover:border-teal-500/30',
-    description:
-      'Contributed to early-stage product development, system architecture, and operational infrastructure during the company\'s foundational growth phase in the healthcare technology space.',
-    logo: '/mykare.png',
-  },
+const timelineEvents = [
+  { role: 'Developer', side: 'left' },
+  { role: 'Senior Engineer', side: 'right' },
+  { role: 'Technical Leader', side: 'left' },
+  { role: 'Product Builder', side: 'right' },
+  { role: 'Co-Founder', side: 'left' },
+  { role: 'Chief Strategy Officer', side: 'right', highlight: true },
 ]
 
 export default function Leadership() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const containerRef = useRef(null)
+  const isInView = useInView(containerRef, { once: true, margin: '-100px' })
 
   return (
-    <section id="leadership" className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Divider */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-[#333] to-transparent mb-12" />
-
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-10"
-        >
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-1 h-6 bg-accent rounded-full" />
-            <h2 className="text-2xl md:text-3xl font-semibold">leadership & ventures</h2>
-          </div>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
-          {ventures.map((venture, index) => (
-            <motion.div
-              key={venture.company}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="group"
-            >
-              <div
-                className={`relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-4 md:p-6 ${venture.hoverColor} transition-all duration-300 h-full`}
-              >
-                <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4">
-                  {/* Icon or Logo */}
-                  <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center text-accent shrink-0 overflow-hidden ${venture.iconHover} transition-all duration-300`}>
-                    {venture.logo ? (
-                      <Image
-                        src={venture.logo}
-                        alt={venture.company}
-                        width={56}
-                        height={56}
-                        className="object-cover"
-                      />
-                    ) : (
-                      <FontAwesomeIcon icon={venture.icon} className="w-5 h-5 md:w-6 md:h-6" />
-                    )}
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-1 min-w-0 w-full">
-                    <div className="flex items-center justify-between gap-2 mb-1">
-                      <h3 className="font-semibold text-white text-xs md:text-sm uppercase tracking-wide">
-                        {venture.title}
-                      </h3>
-                      <span className="text-accent text-[10px] md:text-xs font-medium shrink-0">{venture.year}</span>
-                    </div>
-                    <p className="text-accent text-xs md:text-sm font-medium mb-2 md:mb-3">{venture.company}</p>
-                    <p className="text-[#999] text-xs md:text-sm leading-relaxed">{venture.description}</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+    <section id="leadership" className="py-24 bg-[#0c0e12] overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6">
+        
+        {/* Section Header */}
+        <div className="text-center mb-24">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5 }}
+            className="font-bold text-xs tracking-widest text-[#a9fc03] uppercase mb-4 block"
+          >
+            Evolution
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-3xl md:text-5xl font-bold text-white"
+          >
+            Leadership Journey
+          </motion.h2>
         </div>
+
+        {/* Timeline Container */}
+        <div className="relative max-w-3xl mx-auto" ref={containerRef}>
+          {/* Vertical Connecting Line */}
+          <motion.div
+            initial={{ scaleY: 0 }}
+            animate={isInView ? { scaleY: 1 } : {}}
+            transition={{ duration: 1.5, ease: 'easeInOut' }}
+            className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-white/10 origin-top hidden md:block"
+          />
+
+          <div className="space-y-16 md:space-y-24 relative">
+            {timelineEvents.map((item, index) => {
+              const isLeft = item.side === 'left'
+
+              return (
+                <div
+                  key={item.role}
+                  className={`flex flex-col md:flex-row items-center justify-between w-full relative ${
+                    isLeft ? 'md:flex-row-reverse' : ''
+                  }`}
+                >
+                  {/* Dot (Middle of timeline on desktop) */}
+                  <div className="absolute left-1/2 -translate-x-1/2 z-10 hidden md:block">
+                    <motion.div
+                      initial={{ scale: 0, opacity: 0 }}
+                      animate={isInView ? { scale: 1, opacity: 1 } : {}}
+                      transition={{ delay: index * 0.15, duration: 0.4, type: 'spring', stiffness: 200 }}
+                      className={`w-4 h-4 rounded-full border-4 border-[#0c0e12] ${
+                        item.highlight
+                          ? 'bg-[#a9fc03] shadow-[0_0_15px_#a9fc03]'
+                          : 'bg-[#a9fc03] opacity-60 shadow-[0_0_10px_rgba(169,252,3,0.3)]'
+                      }`}
+                    />
+                  </div>
+
+                  {/* Left Side Content (Desktop: Text right-aligned / Mobile: Centered) */}
+                  <motion.div
+                    initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ delay: index * 0.15 + 0.1, duration: 0.6 }}
+                    className={`w-full md:w-5/12 text-center ${
+                      isLeft ? 'md:text-right' : 'md:text-left'
+                    }`}
+                  >
+                    <h4
+                      className={`text-xl md:text-2xl font-bold ${
+                        item.highlight ? 'text-[#a9fc03] text-2xl md:text-3xl' : 'text-white'
+                      }`}
+                    >
+                      {item.role}
+                    </h4>
+                  </motion.div>
+
+                  {/* Empty Spacer on opposite side (Desktop only) */}
+                  <div className="w-full md:w-5/12 hidden md:block" />
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
       </div>
     </section>
   )

@@ -48,8 +48,8 @@ export default function Scene3D() {
       const centerX = canvas.width / 2
       const centerY = canvas.height * 0.35
       const gradient1 = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 400)
-      gradient1.addColorStop(0, 'rgba(0, 230, 167, 0.08)')
-      gradient1.addColorStop(0.5, 'rgba(0, 230, 167, 0.02)')
+      gradient1.addColorStop(0, 'rgba(169, 252, 3, 0.08)')
+      gradient1.addColorStop(0.5, 'rgba(169, 252, 3, 0.02)')
       gradient1.addColorStop(1, 'transparent')
       ctx.fillStyle = gradient1
       ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -58,7 +58,7 @@ export default function Scene3D() {
       const x2 = canvas.width * 0.2 + Math.sin(time * 0.0003) * 50
       const y2 = canvas.height * 0.6 + Math.cos(time * 0.0004) * 30
       const gradient2 = ctx.createRadialGradient(x2, y2, 0, x2, y2, 200)
-      gradient2.addColorStop(0, 'rgba(0, 179, 134, 0.05)')
+      gradient2.addColorStop(0, 'rgba(169, 252, 3, 0.05)')
       gradient2.addColorStop(1, 'transparent')
       ctx.fillStyle = gradient2
       ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -87,12 +87,12 @@ export default function Scene3D() {
 
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(0, 230, 167, ${p.opacity})`
+        ctx.fillStyle = `rgba(169, 252, 3, ${p.opacity})`
         ctx.fill()
       })
 
       // Draw subtle connections
-      ctx.strokeStyle = 'rgba(0, 230, 167, 0.03)'
+      ctx.strokeStyle = 'rgba(169, 252, 3, 0.03)'
       ctx.lineWidth = 0.5
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {

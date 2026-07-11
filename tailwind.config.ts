@@ -12,14 +12,32 @@ const config: Config = {
       },
       colors: {
         background: {
-          primary: '#000000',
-          secondary: '#0D0D0D',
-          card: '#111111',
+          primary: '#0c0e12',
+          secondary: '#111317',
+          card: '#1e2024',
         },
         accent: {
-          DEFAULT: '#00E6A7',
-          hover: '#00C896',
-          dark: '#00B386',
+          DEFAULT: '#a9fc03',
+          hover: '#98e202',
+          dark: '#87c902',
+        },
+        'brand-accent': '#a9fc03',
+        surface: {
+          DEFAULT: '#111317',
+          variant: '#333539',
+          bright: '#37393e',
+          dim: '#111317',
+        },
+        'on-surface': {
+          DEFAULT: '#e2e2e8',
+          variant: '#c1caad',
+        },
+        'surface-container': {
+          lowest: '#0c0e12',
+          low: '#1a1c20',
+          DEFAULT: '#1e2024',
+          high: '#282a2e',
+          highest: '#333539',
         },
         border: {
           DEFAULT: '#222222',
